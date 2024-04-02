@@ -25,7 +25,7 @@ export const db = new Sequelize(
 export function connectDB() {
   db.authenticate()
     .then(() => {
-      console.log('Connection has been established successfully.')
+      console.log('Database connected successfully.')
     })
     .catch((err) => {
       console.error('Unable to connect to the database:', err)
