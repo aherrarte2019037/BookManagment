@@ -1,6 +1,7 @@
 import express, { json, urlencoded } from 'express'
 import cors from 'cors'
 import path from 'path'
+import 'dotenv/config'
 import { fileURLToPath } from 'url'
 import bookRoutes from './routes/book.route.js'
 import loggerMiddleware from './middlewares/logger.middleware.js'

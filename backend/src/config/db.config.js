@@ -1,11 +1,11 @@
 import { Sequelize } from 'sequelize'
 
 const config = {
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: 'root_password',
-  db: 'book_managment',
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  db: process.env.DATABASE,
   dialect: 'mysql',
   logging: false,
 }
