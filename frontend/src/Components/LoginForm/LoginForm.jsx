@@ -1,9 +1,9 @@
 import React from "react";  
 import "./LoginForm.css";
-import "./RegisterForm.jsx";
 
 
 import { FaUser, FaLock } from "react-icons/fa";
+
 
 
 const LoginForm = () => {
@@ -33,12 +33,15 @@ const LoginForm = () => {
                 <button type="submit">Login</button>
 
                 <div className="register-link" >
-                    <p>Don't have an account? <a href="RegisterForm.jsx">Register here</a></p>
+
+                    <p>Don't have an account? <a href="./RegisterForm">Register here</a></p>
+                    
                 </div>
             </form>
 
         </div>
     );
+    
 }
 
 export default LoginForm;
