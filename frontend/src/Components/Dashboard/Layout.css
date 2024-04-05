@@ -5,7 +5,7 @@
   }
   
   .sidebar {
-    background-color: red;
+    background-color: skyblue;
     width: 15%;
     height: 100%;
   }
@@ -18,12 +18,12 @@
   }
   
   .navbar {
-    background-color: green;
+    background-color: silver;
     height: 10%;
   }
   
   .content {
-    background-color: yellow;
+    background-color: cornflowerblue;
     height: 90%;
   }
   
