@@ -10,13 +10,11 @@ const Sidebar = () => (
 const Navbar = () => (
   <div className="navbar">
     Navbar
+    </div>
 );
 
-const Content = () => (
-    <div className="content">
-      Content
-    <div>
-  );
+//const Content = () => (
+  //);
   
   const Layout = () => {
     return (
