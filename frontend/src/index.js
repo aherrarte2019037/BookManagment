@@ -9,31 +9,37 @@ import {
 } from "react-router-dom";
 import LoginForm from './Components/LoginForm/LoginForm';
 import RegisterForm from './Components/RegisterForm/RegisterForm';
+import { NextUIProvider } from "@nextui-org/react";
+import Dashboard from './Components/Dashboard/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
   },
   {
     path: "/login",
-    element: <LoginForm/>,
+    element: <LoginForm />,
   },
   {
     path: "/register",
-    element: <RegisterForm/>,
+    element: <RegisterForm />,
   },
+  {
+    path: "/dashboard",
+    element: < Dashboard />,
+  },
+
 ]);
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <NextUIProvider>
+      <RouterProvider router={router} />
+    </NextUIProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
