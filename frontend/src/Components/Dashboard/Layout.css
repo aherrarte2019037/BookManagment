@@ -16,3 +16,13 @@
     flex-direction: column;
   }
   
+  .navbar {
+    background-color: green;
+    height: 10%;
+  }
+  
+  .content {
+    background-color: yellow;
+    height: 90%;
+  }
+  
