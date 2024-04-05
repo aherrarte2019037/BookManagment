@@ -35,9 +35,9 @@ const RegisterForm = () => {
                     <FaLock className="icon" />
                 </div>
 
-                <button type="submit">Log in</button>
+                <button type="submit">Register</button>
                 <div className="log-link" >
-                    <p>You have an account?  <a href="/login">Register</a></p>
+                    <p>You have an account?  <a href="/login">Log in</a></p>
                 </div>
     
             </form>
