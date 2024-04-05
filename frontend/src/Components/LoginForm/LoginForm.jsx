@@ -34,7 +34,7 @@ const LoginForm = () => {
 
                 <div className="register-link" >
 
-                    <p>Don't have an account? <a href="./RegisterForm">Register here</a></p>
+                    <p>Don't have an account? <a href="/register">Register here</a></p>
                     
                 </div>
             </form>
