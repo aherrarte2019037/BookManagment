@@ -4,7 +4,9 @@ import Layout from "./Layout";
 
 const Dashboard = () => {
     return (
-        <Layout />
+        <div className="dashboard">
+            <Layout />
+        </div>
     );
 
 }
