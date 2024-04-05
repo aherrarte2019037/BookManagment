@@ -1,5 +1,5 @@
 import React from 'react';
-import './layout.css';
+import './Layout.css';
 
 const Sidebar = () => (
   <div className="sidebar">
@@ -13,18 +13,23 @@ const Navbar = () => (
     </div>
 );
 
-//const Content = () => (
-  //);
+const Content = () => (
+    <div className="content">
+        Content
+    </div>
+  );
   
   const Layout = () => {
     return (
       <div className="layout">
-        <sidebar />
+        <Sidebar />
         <div className="main">
           <Navbar />
           <Content />
         </div>
       </div>
-    )
+    );
   }
+
+  export default Layout;
  
