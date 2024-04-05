@@ -37,7 +37,7 @@ const RegisterForm = () => {
 
                 <button type="submit">Log in</button>
                 <div className="log-link" >
-                    <p>You have an account?  <a href="/login">Log In</a></p>
+                    <p>You have an account?  <a href="/login">Register</a></p>
                 </div>
     
             </form>
