@@ -5,17 +5,68 @@
   }
   
   .sidebar {
-    background-color: skyblue;
-    width: 15%;
-    height: 100%;
+    background-color: #2c3e50;
+    width: 50px; /* ancho inicial */
+    height: 100vh;
+    transition: width 0.5s; /* animación suave para el ancho */
     display: flex;
     flex-direction: column;
     align-items: center; /* Asegura que los botones estén centrados */
     padding-top: 20px; /* Espacio en la parte superior */
   }
+
+  .sidebar.collapsed {
+    width: 50px; /* Ancho cuando está colapsada */
+  }
+
+  /* Estilos para sidebar expandida */
+.sidebar.expanded {
+  width: 250px; /* ancho expandido */
+}
   
+/* Estilos para los ítems de la sidebar */
+.sidebar-item {
+  color: #ecf0f1;
+  padding: 10px;
+  margin: 10px 0;
+  transition: transform 0.5s;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* Estilos para ítems al expandir la sidebar */
+.sidebar.expanded .sidebar-item {
+  transform: translateX(0); /* los mueve a su posición original */
+}
+
+
+.text {
+  display: none; /* Texto oculto por defecto */
+  padding-left: 10px; /* Espacio entre el ícono y el texto */
+}
+
+/* Estilos para texto de la sidebar (oculto cuando está contraída) */
+.sidebar-text {
+  display: none;
+  /* estilos para el texto */
+}
+
+/* Estilos para mostrar texto cuando la sidebar está expandida */
+.sidebar.expanded .sidebar-text {
+  display: inline;
+}
+
+.sidebar-item .text {
+  display: none; /* Oculta el texto cuando la sidebar está colapsada */
+}
+
+.sidebar.expanded .sidebar-item .text {
+  display: block; /* O display: inline; según prefieras */
+}
+
   .sidebar button {
-    background-color: #100abbbf; /* Color de fondo del botón */
+    background-color: #fdfdfdbf; /* Color de fondo del botón */
     border: none; /* Elimina el borde por defecto */
     color: white; /* Color del texto */
     padding: 10px 20px; /* Espaciado interno del botón */
