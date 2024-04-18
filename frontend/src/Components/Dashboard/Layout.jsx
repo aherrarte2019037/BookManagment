@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Layout.css';
 
-const Sidebar = () => (
+const Sidebar = ({ onChangeContent }) => (
   <div className="sidebar">
-    Sidebar
+    <button onClick={() => onChangeContent("New Book")}>Nuevo Libro</button>
+    <button onClick={() => onChangeContent("Orders")}>Pedidos</button>
+    <button onClick={() => onChangeContent("Shipments")}>Envios</button>
+    <button onClick={() => onChangeContent("Stock")}>Inventario</button>
   </div>
 );
 
@@ -13,22 +16,31 @@ const Navbar = () => (
   </div>
 );
 
-const Content = () => (
+const Content = ({ activeContent }) => (
   <div className="content">
-    Content
+    {activeContent}
   </div>
 );
 
 const Layout = () => {
+  // Estado para controlar el contenido activo
+  const [activeContent, setActiveContent] = useState("Home");
+
+  // Función para cambiar el contenido
+  const handleContentChange = (content) => {
+    setActiveContent(content);
+  };
+
   return (
     <div className="layout">
-      <Sidebar />
+      <Sidebar onChangeContent={handleContentChange} />
       <div className="main">
         <Navbar />
-        <Content />
+        <Content activeContent={activeContent} />
       </div>
     </div>
   );
 }
 
 export default Layout;
+
