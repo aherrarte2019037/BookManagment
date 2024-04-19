@@ -69,11 +69,11 @@
     background-color: #fdfdfdbf; /* Color de fondo del botón */
     border: none; /* Elimina el borde por defecto */
     color: white; /* Color del texto */
-    padding: 10px 20px; /* Espaciado interno del botón */
-    margin-bottom: 10px; /* Espaciado entre botones */
-    border-radius: 20px; /* Bordes redondeados */
-    cursor: pointer; /* Cursor en forma de mano al pasar por encima */
-    font-size: 16px; /* Tamaño del texto */
+    padding: 10px 20px; 
+    margin-bottom: 10px; 
+    border-radius: 20px;
+    cursor: pointer; 
+    font-size: 16px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
     transition: background-color 0.3s; /* Transición suave al cambiar el color */
 }
@@ -220,8 +220,8 @@
 /* Títulos de las tablas */
 .custom-table h3 {
   background-color: #3498db; /* Color de fondo del título */
-  color: white; /* Color del texto del título */
-  padding: 10px; /* Espacio alrededor del texto */
+  color: white; 
+  padding: 10px; 
 }
 
 /* Estilo de los formularios dentro de las tablas */
@@ -229,5 +229,38 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Estilo de las etiquetas (labels) */
+.custom-table label {
+  margin-top: 10px; /* Espacio por encima de la etiqueta */
+}
+
+/* Estilo de los campos de entrada (input y textarea) */
+.custom-table input[type="text"],
+.custom-table textarea {
+  margin-top: 5px; 
+  margin-bottom: 15px; 
+  padding: 10px; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+}
+
+/* Estilo de los botones de envío */
+.custom-table button {
+  padding: 10px 20px; 
+  background-color: #2ecc71; 
+  color: white; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+  margin-top: 10px; 
+}
+
+/* Estilo de los botones al pasar el cursor sobre ellos */
+.custom-table button:hover {
+  background-color: #27ae60; 
+}
+
 
 
