@@ -119,6 +119,30 @@ const Content = ({ activeContent }) => {
                   <button type="submit">Enviar Pedido</button>
                 </form>
               </div>
+
+              <div className="custom-table">
+              <h3>Orden De Compra</h3>
+              <form>
+                <label htmlFor="temporada">Temporada</label>
+                <input type="text" id="temporada" placeholder="Espacio para poder escribir texto" />
+
+                <label htmlFor="vendedor">Vendedor</label>
+                <input type="text" id="vendedor" placeholder="Espacio para poder escribir texto" />
+
+                <label htmlFor="fecha">Fecha</label>
+                <input type="text" id="fecha" placeholder="Espacio para poder escribir texto" />
+
+                <label htmlFor="entrega">Entrega</label>
+                <input type="text" id="entrega" placeholder="Espacio para poder escribir texto" />
+
+                <label htmlFor="detalleCompra">Detalle De la compra:</label>
+                <textarea id="detalleCompra" placeholder="Espacio para poder escribir texto"></textarea>
+
+                <button type="submit">Confirmar Orden</button>
+              </form>
+            </div>
+          </div>
+        );
       case "Ventas":
         return (
           <div className="new-book-form-ventas">
