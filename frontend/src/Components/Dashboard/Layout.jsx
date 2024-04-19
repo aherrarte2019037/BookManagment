@@ -47,17 +47,69 @@ const Sidebar = ({ onChangeContent }) => {
   );
 };
 
-const Navbar = () => (
+const NavbarButton = ({ icon, onClick }) => (
+  <button className="navbar-item" onClick={onClick}>
+    <span className="icon">{icon}</span>
+  </button>
+);
+
+const Navbar = ({ onChangeContent }) => (
   <div className="navbar">
-    Navbar
+    <NavbarButton
+      icon={<img src="/icons8-settings-40.png" alt="Configuración" />}
+      onClick={() => onChangeContent("Configuración")}
+    />
+    <NavbarButton
+      icon={<img src="/icons8-logout-40.png" alt="Cerrar Sesión" />}
+      onClick={() => onChangeContent("Cerrar Sesión")}
+    />
   </div>
 );
 
-const Content = ({ activeContent }) => (
-  <div className="content">
-    {activeContent}
-  </div>
-);
+const Content = ({ activeContent }) => {
+  const renderContent = () => {
+    switch (activeContent) {
+      case "Nuevo Libro":
+        return (
+          <div className="new-book-form">
+            <h2>Nuevo Libro</h2>
+            <form>
+              <label htmlFor="editorial">Editorial</label>
+              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+
+              <label htmlFor="titulo">Título del Libro</label>
+              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título del libro" />
+
+              <label htmlFor="precio">Precio de Venta</label>
+              <input type="text" id="precio" name="precio" placeholder="Ingresa el precio de venta" />
+
+              <button type="submit">Agregar Libro</button>
+            </form>
+          </div>
+        );
+        case "Configuración":
+        return (
+          <div>
+            <h2>Configuración</h2>
+            {/* Opciones de configuración */}
+          </div>
+        );
+        case "Cerrar Sesión":
+        // Manejar la lógica de cerrar sesión
+        return <h2>Cerrando sesión...</h2>;
+      // Agrega más casos para otros tipos de contenido si es necesario
+      default:
+        return <div>{activeContent}</div>;
+    }
+  };
+
+  return (
+    <div className="content">
+      {renderContent()}
+    </div>
+  );
+};
+
 
 const Layout = () => {
   // Estado para controlar el contenido activo
