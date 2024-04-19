@@ -108,13 +108,13 @@ const Content = ({ activeContent }) => {
                 <h3>Pedido</h3>
                 <form>
                   <label htmlFor="tituloSolicitar">Título a solicitar</label>
-                  <input type="text" id="tituloSolicitar" placeholder="Espacio para poder escribir texto" />
+                  <input type="text" id="tituloSolicitar" placeholder="" />
   
                   <label htmlFor="cantidad">Cantidad</label>
-                  <input type="text" id="cantidad" placeholder="Espacio para poder escribir texto" />
+                  <input type="text" id="cantidad" placeholder="" />
   
                   <label htmlFor="nombreSolicitante">Nombre de colegio o distribuidor que lo solicita</label>
-                  <input type="text" id="nombreSolicitante" placeholder="Espacio para poder escribir texto" />
+                  <input type="text" id="nombreSolicitante" placeholder="" />
   
                   <button type="submit">Enviar Pedido</button>
                 </form>
@@ -124,19 +124,19 @@ const Content = ({ activeContent }) => {
               <h3>Orden De Compra</h3>
               <form>
                 <label htmlFor="temporada">Temporada</label>
-                <input type="text" id="temporada" placeholder="Espacio para poder escribir texto" />
+                <input type="text" id="temporada" placeholder="" />
 
                 <label htmlFor="vendedor">Vendedor</label>
-                <input type="text" id="vendedor" placeholder="Espacio para poder escribir texto" />
+                <input type="text" id="vendedor" placeholder="" />
 
                 <label htmlFor="fecha">Fecha</label>
-                <input type="text" id="fecha" placeholder="Espacio para poder escribir texto" />
+                <input type="text" id="fecha" placeholder="" />
 
                 <label htmlFor="entrega">Entrega</label>
-                <input type="text" id="entrega" placeholder="Espacio para poder escribir texto" />
+                <input type="text" id="entrega" placeholder="" />
 
                 <label htmlFor="detalleCompra">Detalle De la compra:</label>
-                <textarea id="detalleCompra" placeholder="Espacio para poder escribir texto"></textarea>
+                <textarea id="detalleCompra" placeholder=""></textarea>
 
                 <button type="submit">Confirmar Orden</button>
               </form>
