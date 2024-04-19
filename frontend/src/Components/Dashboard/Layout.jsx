@@ -93,28 +93,28 @@ const Content = ({ activeContent }) => {
             <h2>Nueva Venta</h2>
             <form>
               <label htmlFor="editorial">Temporada</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+              <input type="text" id="editorial" name="editorial" placeholder="Ingrese la temporada" />
 
               <label htmlFor="titulo">Vendedor</label>
-              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título del libro" />
+              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el vendedor" />
 
               <label htmlFor="precio">Condiciones</label>
-              <input type="text" id="precio" name="precio" placeholder="Ingresa el precio de venta" />
+              <input type="text" id="precio" name="precio" placeholder="Ingresa las condiciones" />
 
               <label htmlFor="editorial">Fecha de entrega</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la fecha de entrega" />
 
               <label htmlFor="titulo">Establecimiento</label>
-              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título del libro" />
+              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el establecimiento" />
 
               <label htmlFor="precio">Atencion</label>
-              <input type="text" id="precio" name="precio" placeholder="Ingresa el precio de venta" />
+              <input type="text" id="precio" name="precio" placeholder="Ingresa atencion" />
               
               <label htmlFor="editorial">Direccion</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la direccion" />
 
               <label htmlFor="editorial">Telefono</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+              <input type="text" id="editorial" name="editorial" placeholder="Ingresa el telefono" />
 
               <button type="submit">Agregar Producto</button>
             </form>
