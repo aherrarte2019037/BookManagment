@@ -157,3 +157,50 @@
     background-color: #3F51B5;
   }
   
+  .new-book-form-ventas {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  .new-book-form-ventas h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .new-book-form-ventas form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .new-book-form-ventas label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .new-book-form-ventas input[type="text"] {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  .new-book-form-ventas button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #5C6BC0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .new-book-form-ventas button:hover {
+    background-color: #3F51B5;
+  }
+  
+

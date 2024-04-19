@@ -87,6 +87,38 @@ const Content = ({ activeContent }) => {
             </form>
           </div>
         );
+        case "Ventas":
+        return (
+          <div className="new-book-form-ventas">
+            <h2>Nueva Venta</h2>
+            <form>
+              <label htmlFor="editorial">Temporada</label>
+              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+
+              <label htmlFor="titulo">Vendedor</label>
+              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título del libro" />
+
+              <label htmlFor="precio">Condiciones</label>
+              <input type="text" id="precio" name="precio" placeholder="Ingresa el precio de venta" />
+
+              <label htmlFor="editorial">Fecha de entrega</label>
+              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+
+              <label htmlFor="titulo">Establecimiento</label>
+              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título del libro" />
+
+              <label htmlFor="precio">Atencion</label>
+              <input type="text" id="precio" name="precio" placeholder="Ingresa el precio de venta" />
+              
+              <label htmlFor="editorial">Direccion</label>
+              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+
+              <label htmlFor="editorial">Telefono</label>
+              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
+
+              <button type="submit">Agregar Producto</button>
+            </form>
+          </div>);
         case "Configuración":
         return (
           <div>
