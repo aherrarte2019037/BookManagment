@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -11,25 +10,39 @@ import LoginForm from './Components/LoginForm/LoginForm';
 import RegisterForm from './Components/RegisterForm/RegisterForm';
 import { NextUIProvider } from "@nextui-org/react";
 import Dashboard from './Components/Dashboard/Dashboard';
+import AuthChecker from './Components/AuthChecker/AuthChecker';
+import PrivateRoute from './Components/AuthChecker/PrivateRoute';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element:
+      <AuthChecker>
+        <LoginForm />
+      </AuthChecker>,
   },
   {
     path: "/login",
-    element: <LoginForm />,
+    element:
+      <AuthChecker>
+        <LoginForm />
+      </AuthChecker>,
   },
   {
     path: "/register",
-    element: <RegisterForm />,
+    element:
+      <AuthChecker>
+        <RegisterForm />
+      </AuthChecker>,
   },
   {
     path: "/dashboard",
-    element: < Dashboard />,
+    element:
+      <PrivateRoute>
+        < Dashboard />
+      </PrivateRoute>
   },
 
 ]);
