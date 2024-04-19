@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Layout.css';
+import { supabase } from '../../Utils/supabase';
+import { useNavigate } from 'react-router-dom';
 
-// Define el componente de botón de la barra lateral que acepta ícono y texto
 const SidebarButton = ({ icon, text, onClick, isExpanded }) => (
   <button className="sidebar-item" onClick={onClick}>
     <span className="icon">{icon}</span>
@@ -10,7 +11,6 @@ const SidebarButton = ({ icon, text, onClick, isExpanded }) => (
 );
 
 const Sidebar = ({ onChangeContent }) => {
-  // Estado para controlar la expansión de la Sidebar
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -58,18 +58,27 @@ const NavbarButton = ({ icon, onClick }) => (
   </button>
 );
 
-const Navbar = ({ onChangeContent }) => (
-  <div className="navbar">
-    <NavbarButton
-      icon={<img src="/icons8-settings-40.png" alt="Configuración" />}
-      onClick={() => onChangeContent("Configuración")}
-    />
-    <NavbarButton
-      icon={<img src="/icons8-logout-40.png" alt="Cerrar Sesión" />}
-      onClick={() => onChangeContent("Cerrar Sesión")}
-    />
-  </div>
-);
+const Navbar = ({ onChangeContent }) => {
+  const navigation = useNavigate();
+
+   async function signOut() {
+    await supabase.auth.signOut();
+    navigation('/login');
+  }
+
+  return (
+    <div className="navbar">
+      <NavbarButton
+        icon={<img src="/icons8-settings-40.png" alt="Configuración" />}
+        onClick={() => onChangeContent("Configuración")}
+      />
+      <NavbarButton
+        icon={<img src="/icons8-logout-40.png" alt="Cerrar Sesión" />}
+        onClick={signOut}
+      />
+    </div>
+  )
+};
 
 const Content = ({ activeContent }) => {
   const renderContent = () => {
@@ -92,7 +101,7 @@ const Content = ({ activeContent }) => {
             </form>
           </div>
         );
-        case "Ventas":
+      case "Ventas":
         return (
           <div className="new-book-form-ventas">
             <h2>Nueva Venta</h2>
@@ -114,7 +123,7 @@ const Content = ({ activeContent }) => {
 
               <label htmlFor="precio">Atencion</label>
               <input type="text" id="precio" name="precio" placeholder="Ingresa atencion" />
-              
+
               <label htmlFor="editorial">Direccion</label>
               <input type="text" id="editorial" name="editorial" placeholder="Ingresa la direccion" />
 
@@ -124,14 +133,14 @@ const Content = ({ activeContent }) => {
               <button type="submit">Agregar Producto</button>
             </form>
           </div>);
-        case "Configuración":
+      case "Configuración":
         return (
           <div>
             <h2>Configuración</h2>
             {/* Opciones de configuración */}
           </div>
         );
-        case "Cerrar Sesión":
+      case "Cerrar Sesión":
         // Manejar la lógica de cerrar sesión
         return <h2>Cerrando sesión...</h2>;
       // Agrega más casos para otros tipos de contenido si es necesario
@@ -149,10 +158,8 @@ const Content = ({ activeContent }) => {
 
 
 const Layout = () => {
-  // Estado para controlar el contenido activo
   const [activeContent, setActiveContent] = useState("Home");
 
-  // Función para cambiar el contenido activo
   const handleContentChange = (content) => {
     setActiveContent(content);
   };
@@ -161,7 +168,7 @@ const Layout = () => {
     <div className="layout">
       <Sidebar onChangeContent={handleContentChange} />
       <div className="main">
-      <Navbar onChangeContent={handleContentChange} />
+        <Navbar onChangeContent={handleContentChange} />
         <Content activeContent={activeContent} />
       </div>
     </div>
