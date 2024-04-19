@@ -20,6 +20,11 @@ const Sidebar = ({ onChangeContent }) => {
       onMouseLeave={() => setIsExpanded(false)}
     >
       <SidebarButton
+        icon={<img src="/Icono de la empresa.png" alt="Inicio" />}
+        onClick={() => onChangeContent("Home")}
+        isExpanded={isExpanded}
+      />
+      <SidebarButton
         icon={<img src="/icons8-book-30.png" alt="Nuevo Libro" />}
         text="Nuevo Libro"
         onClick={() => onChangeContent("Nuevo Libro")}
@@ -156,7 +161,7 @@ const Layout = () => {
     <div className="layout">
       <Sidebar onChangeContent={handleContentChange} />
       <div className="main">
-        <Navbar />
+      <Navbar onChangeContent={handleContentChange} />
         <Content activeContent={activeContent} />
       </div>
     </div>
