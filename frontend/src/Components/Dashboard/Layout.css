@@ -204,5 +204,30 @@
   .new-book-form-ventas button:hover {
     background-color: #3F51B5;
   }
-  
+  /* Estilos para los contenedores de formularios de pedidos y órdenes de compra */
+.form-container {
+  padding: 20px;
+}
+
+/* Estilos para cada tabla/formulario personalizado */
+.custom-table {
+  background-color: #fff; /* Ajusta el color según tu preferencia */
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+/* Títulos de las tablas */
+.custom-table h3 {
+  background-color: #3498db; /* Color de fondo del título */
+  color: white; /* Color del texto del título */
+  padding: 10px; /* Espacio alrededor del texto */
+}
+
+/* Estilo de los formularios dentro de las tablas */
+.custom-table form {
+  display: flex;
+  flex-direction: column;
+}
+
 
