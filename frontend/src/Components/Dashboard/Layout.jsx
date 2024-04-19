@@ -101,6 +101,24 @@ const Content = ({ activeContent }) => {
             </form>
           </div>
         );
+        case "Pedidos":
+          return (
+            <div className="form-container">
+              <div className="custom-table">
+                <h3>Pedido</h3>
+                <form>
+                  <label htmlFor="tituloSolicitar">Título a solicitar</label>
+                  <input type="text" id="tituloSolicitar" placeholder="Espacio para poder escribir texto" />
+  
+                  <label htmlFor="cantidad">Cantidad</label>
+                  <input type="text" id="cantidad" placeholder="Espacio para poder escribir texto" />
+  
+                  <label htmlFor="nombreSolicitante">Nombre de colegio o distribuidor que lo solicita</label>
+                  <input type="text" id="nombreSolicitante" placeholder="Espacio para poder escribir texto" />
+  
+                  <button type="submit">Enviar Pedido</button>
+                </form>
+              </div>
       case "Ventas":
         return (
           <div className="new-book-form-ventas">
