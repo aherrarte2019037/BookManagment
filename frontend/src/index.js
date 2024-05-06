@@ -12,6 +12,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import Dashboard from './Components/Dashboard/Dashboard';
 import AuthChecker from './Components/AuthChecker/AuthChecker';
 import PrivateRoute from './Components/AuthChecker/PrivateRoute';
+import { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -51,6 +52,7 @@ root.render(
   <React.StrictMode>
     <NextUIProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </NextUIProvider>
   </React.StrictMode>
 );
