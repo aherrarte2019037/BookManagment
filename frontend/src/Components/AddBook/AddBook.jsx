@@ -21,6 +21,13 @@ export default function AddBook() {
     async function handleSubmit(e) {
         e.preventDefault();
 
+        const { data: foundBook, error: foundBookError } = await supabase.from('Books').select().filter('title', 'ilike', formData.titulo.trim()).maybeSingle();
+
+        if (foundBook || foundBookError) {
+            toast.error('Ya existe un libro con ese título');
+            return;
+        }
+
         const { data, error } = await supabase
             .from('Books')
             .insert({
