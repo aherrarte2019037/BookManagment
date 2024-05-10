@@ -90,6 +90,8 @@ const Content = ({ activeContent }) => {
           <div className="new-book-form-home">
             <b><h1>Informacion General</h1></b>
             <form>
+            <label htmlFor="editorial"> </label>
+              <p></p>
               <label htmlFor="editorial">Mision</label>
               <p>Facilitar el acceso a una educación de calidad mediante la producción y distribución de materiales educativos innovadores y relevantes, comprometiéndonos con la excelencia en cada etapa de nuestro trabajo, desde la creación hasta la entrega final, para contribuir al desarrollo integral de las comunidades educativas.</p>
               <label htmlFor="editorial">Vision</label>
@@ -100,28 +102,6 @@ Innovación constante: Buscamos constantemente nuevas formas de mejorar y adapta
 Ética y responsabilidad: Actuamos con integridad y responsabilidad en todas nuestras acciones, manteniendo altos estándares éticos en nuestras relaciones con empleados, autores, clientes y proveedores.<br /><br />
 Colaboración y diversidad: Valoramos la diversidad de perspectivas y experiencias, fomentando un entorno de colaboración donde cada voz sea escuchada y respetada.<br /><br />
 Excelencia y profesionalismo: Nos esforzamos por alcanzar la excelencia en todo lo que hacemos, manteniendo altos estándares de profesionalismo y dedicación en cada proyecto que emprendemos.</p>
-              <label htmlFor="editorial">Valores</label>
-              <p></p>
-
-              <label htmlFor="precio">Condiciones</label>
-              <input type="text" id="precio" name="precio" placeholder="Ingresa las condiciones" />
-
-              <label htmlFor="editorial">Fecha de entrega</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la fecha de entrega" />
-
-              <label htmlFor="titulo">Establecimiento</label>
-              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el establecimiento" />
-
-              <label htmlFor="precio">Atencion</label>
-              <input type="text" id="precio" name="precio" placeholder="Ingresa atencion" />
-
-              <label htmlFor="editorial">Direccion</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la direccion" />
-
-              <label htmlFor="editorial">Telefono</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa el telefono" />
-
-              <button type="submit">Agregar Producto</button>
             </form>
           </div>); ;
       case "Nuevo Libro":
