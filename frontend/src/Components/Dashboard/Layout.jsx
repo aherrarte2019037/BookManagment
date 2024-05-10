@@ -4,6 +4,8 @@ import { supabase } from '../../Utils/supabase';
 import { useNavigate } from 'react-router-dom';
 import AddBook from '../AddBook/AddBook';
 import AddOrder from '../AddOrder/AddOrder';
+import ProfileConfig from '../ProfileConfig/ProfileConfig';
+
 
 const SidebarButton = ({ icon, text, onClick, isExpanded }) => (
   <button className="sidebar-item" onClick={onClick}>
@@ -16,6 +18,7 @@ const Sidebar = ({ onChangeContent }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
+    
     <div
       className={`sidebar ${isExpanded ? 'expanded' : 'collapsed'}`}
       onMouseEnter={() => setIsExpanded(true)}
@@ -140,18 +143,13 @@ Excelencia y profesionalismo: Nos esforzamos por alcanzar la excelencia en todo 
 
               <button type="submit">Agregar Producto</button>
             </form>
-          </div>);
-      case "Configuración":
-        return (
-          <div>
-            <h2>Configuración</h2>
-            {/* Opciones de configuración */}
           </div>
         );
+
+      case "Configuración":
+        return <ProfileConfig />;
       case "Cerrar Sesión":
-        // Manejar la lógica de cerrar sesión
         return <h2>Cerrando sesión...</h2>;
-      // Agrega más casos para otros tipos de contenido si es necesario
       default:
         return <div>{activeContent}</div>;
     }
