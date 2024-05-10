@@ -113,8 +113,7 @@
     height: 100%;
   }
   
-  .new-book-form,
-  .new-book-form-ventas {
+  .new-book-form{
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -123,27 +122,22 @@
     margin: 20px auto;
   }
   
-  .new-book-form h2,
-  .new-book-form-ventas {
+  .new-book-form h2 {
     text-align: center;
     color: #333;
   }
   
-  .new-book-form form,
-  .new-book-form-ventas form {
+  .new-book-form form {
     display: flex;
     flex-direction: column;
   }
   
-  .new-book-form label,
-  .new-book-form-ventas label {
+  .new-book-form label {
     font-weight: bold;
     margin-top: 10px;
   }
   
-  .new-book-form input[type="text"],
-  .new-book-form-ventas input[type="text"],
-  .order-form input[type="text"] {
+  .new-book-form input[type="text"] {
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
@@ -151,8 +145,7 @@
     font-size: 16px;
   }
   
-  .new-book-form button
-  .new-book-form-ventas button {
+  .new-book-form button {
     padding: 10px 20px;
     margin-top: 20px;
     background-color: #5C6BC0;
@@ -162,8 +155,7 @@
     cursor: pointer;
   }
   
-  .new-book-form button:hover,
-  .new-book-form-ventas button:hover{
+  .new-book-form button:hover{
     background-color: #3F51B5;
   }
   
