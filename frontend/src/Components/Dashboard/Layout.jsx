@@ -143,7 +143,12 @@ Excelencia y profesionalismo: Nos esforzamos por alcanzar la excelencia en todo 
             </form>
           </div>);
       case "Configuración":
-        return <ProfileConfig />;
+        return (
+          <div>
+            <h2>Configuración</h2>
+            {/* Opciones de configuración */}
+          </div>
+        );
       case "Cerrar Sesión":
         // Manejar la lógica de cerrar sesión
         return <h2>Cerrando sesión...</h2>;
