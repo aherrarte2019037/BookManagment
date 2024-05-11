@@ -4,6 +4,7 @@ import { supabase } from '../../Utils/supabase';
 import { useNavigate } from 'react-router-dom';
 import AddBook from '../AddBook/AddBook';
 import AddOrder from '../AddOrder/AddOrder';
+import ProfileConfig from '../ProfileConfig/ProfileConfig';
 
 
 const SidebarButton = ({ icon, text, onClick, isExpanded }) => (
