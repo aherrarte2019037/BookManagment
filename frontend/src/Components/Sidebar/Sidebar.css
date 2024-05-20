@@ -1,0 +1,58 @@
+.sidebar {
+    width: 60px;
+    background-color: #f4f5f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transition: width 0.3s ease;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+  }
+  
+  .sidebar.expanded {
+    width: 250px;
+  }
+  
+  .company-icon {
+    margin-bottom: 20px;
+    transition: width 0.3s ease;
+  }
+  
+  .company-icon img {
+    width: 30px; /* Tamaño cuando el sidebar está colapsado */
+    transition: width 0.3s ease;
+  }
+  
+  .company-icon.expanded img {
+    width: 100px; /* Tamaño cuando el sidebar está expandido */
+  }
+  
+  .sidebar-item {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #e2e6ea;
+  }
+  
+  .icon {
+    width: 30px;
+    display: inline-block;
+  }
+  
+  .text {
+    margin-left: 10px;
+  }
+  
+  .sidebar-item img {
+    width: 30px;
+  }
+  
