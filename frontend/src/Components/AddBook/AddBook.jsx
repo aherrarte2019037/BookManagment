@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { supabase } from '../../Utils/supabase';
+import './AddBook.css'; // Asegúrate de importar el archivo CSS
 
 export default function AddBook() {
     const [formData, setFormData] = useState({
@@ -53,23 +54,59 @@ export default function AddBook() {
     }
 
     return (
-        <div className="new-book-form">
-            <h2>Nuevo Libro</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="editorial">Editorial</label>
-                <input value={formData.editorial} onChange={handleChange} type="text" id="editorial" name="editorial" placeholder="Ingresa la editorial" />
-
-                <label htmlFor="titulo">Título del Libro</label>
-                <input value={formData.titulo} onChange={handleChange} type="text" id="titulo" name="titulo" placeholder="Ingresa el título del libro" />
-
-                <label htmlFor="precio">Precio de Venta (Q)</label>
-                <input value={formData.precio} onChange={handleChange} type="text" id="precio" name="precio" placeholder="Ingresa el precio de venta" />
-
-                <label htmlFor="cantidad">Cantidad</label>
-                <input value={formData.cantidad} onChange={handleChange} type="text" id="cantidad" name="cantidad" placeholder="Ingresa la cantidad" />
-
-                <button type="submit">Agregar Libro</button>
-            </form>
+        <div className="new-book-form-container">
+            <div className="new-book-form">
+                <h2>Nuevo Libro</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <input 
+                            value={formData.editorial} 
+                            onChange={handleChange} 
+                            type="text" 
+                            id="editorial" 
+                            name="editorial" 
+                            placeholder="Editorial" 
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input 
+                            value={formData.titulo} 
+                            onChange={handleChange} 
+                            type="text" 
+                            id="titulo" 
+                            name="titulo" 
+                            placeholder="Título del Libro" 
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input 
+                            value={formData.precio} 
+                            onChange={handleChange} 
+                            type="text" 
+                            id="precio" 
+                            name="precio" 
+                            placeholder="Precio de Venta (Q)" 
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input 
+                            value={formData.cantidad} 
+                            onChange={handleChange} 
+                            type="text" 
+                            id="cantidad" 
+                            name="cantidad" 
+                            placeholder="Cantidad" 
+                        />
+                    </div>
+                    <button type="submit" className="cta">
+                      <span>Agregar Libro</span>
+                      <svg width="15px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </button>
+                </form>
+            </div>
         </div>
     );
 }
