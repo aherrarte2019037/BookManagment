@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { supabase } from '../../Utils/supabase';
-import './AddBook.css'; // Asegúrate de importar el archivo CSS
+import './AddBook.css';
 
 export default function AddBook() {
     const [formData, setFormData] = useState({

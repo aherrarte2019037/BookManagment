@@ -1,40 +1,65 @@
-import React, { useState } from 'react';
-import './ProfileConfig.css';  // Asegúrate de que el path al archivo CSS es correcto.
+import React, { useEffect, useState } from 'react';
+import './ProfileConfig.css';
+import { supabase } from '../../Utils/supabase';
+import toast from "react-hot-toast";
 
 function ProfileConfig() {
     const [profile, setProfile] = useState({
         firstName: '',
         lastName: '',
         email: '',
-        phone: '',
-        password: '',
-        newPassword: '',
-        confirmNewPassword: ''
     });
-    const [avatar, setAvatar] = useState(null);
-    const [showPasswordFields, setShowPasswordFields] = useState(false);
+
+    const [initialEmail, setInitialEmail] = useState('');
+
+    useEffect(() => {
+        const fetchProfile = async () => {
+            const { data, error } = await supabase.auth.getUser();
+            if (error) {
+                toast.error('No se pudo obtener la información del perfil');
+                return;
+            }
+            if (data?.user) {
+                setProfile({
+                    firstName: data.user.user_metadata.name,
+                    lastName: data.user.user_metadata.lastname,
+                    email: data.user.email,
+                });
+                setInitialEmail(data.user.email);
+            }
+        };
+        fetchProfile();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProfile(prevState => ({ ...prevState, [name]: value }));
     };
 
-    const handleAvatarChange = (e) => {
-        const file = e.target.files[0];
-        setAvatar(file);
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Perfil actualizado:', profile);
+        const updates = {
+            data: {
+                name: profile.firstName,
+                lastname: profile.lastName
+            }
+        };
+
+        // Include email only if it has changed
+        if (profile.email !== initialEmail) {
+            updates.email = profile.email;
+        }
+
+        const { error } = await supabase.auth.updateUser(updates);
+        if (error) {
+            toast.error('No se pudo actualizar la información del perfil');
+        } else {
+            toast.success('Perfil actualizado correctamente');
+        }
     };
 
     const handleCancel = () => {
         console.log('Cambios cancelados');
-    };
-
-    const togglePasswordFields = () => {
-        setShowPasswordFields(!showPasswordFields);
     };
 
     return (
@@ -56,42 +81,6 @@ function ProfileConfig() {
                         <input type="email" name="email" value={profile.email} onChange={handleChange} />
                     </label>
                 </div>
-                <div className="form-group">
-                    <label>Teléfono:
-                        <input type="tel" name="phone" value={profile.phone} onChange={handleChange} />
-                    </label>
-                </div>
-                <div className="form-group">
-                    <label>Cambiar Avatar:
-                        <input type="file" onChange={handleAvatarChange} />
-                    </label>
-                </div>
-                
-                <div className="button-container">
-                    <button type="button" onClick={togglePasswordFields} className="button change-password-button">
-                        Cambiar Contraseña
-                    </button>
-                </div>
-
-                {showPasswordFields && (
-                    <div>
-                        <div className="form-group">
-                            <label>Contraseña Actual:
-                                <input type="password" name="password" value={profile.password} onChange={handleChange} />
-                            </label>
-                        </div>
-                        <div className="form-group">
-                            <label>Nueva Contraseña:
-                                <input type="password" name="newPassword" value={profile.newPassword} onChange={handleChange} />
-                            </label>
-                        </div>
-                        <div className="form-group">
-                            <label>Confirmar Nueva Contraseña:
-                                <input type="password" name="confirmNewPassword" value={profile.confirmNewPassword} onChange={handleChange} />
-                            </label>
-                        </div>
-                    </div>
-                )}
 
                 <div className="button-container">
                     <button type="submit" className="button save-changes-button">Guardar Cambios</button>
