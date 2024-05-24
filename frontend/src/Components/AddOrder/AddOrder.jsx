@@ -1,92 +1,67 @@
-import React, { useState } from "react";
-import toast from "react-hot-toast";
-import { supabase } from '../../Utils/supabase';
+import React, { useState } from 'react';
+import './AddOrder.css'; // Importa tus estilos CSS
 
 export default function AddOrder() {
-    const [orderFormData, setOrderFormData] = useState({
+    const [formData, setFormData] = useState({
         titulo: '',
         cantidad: '',
-        cliente: '',
+        colegio: '',
+        ordenCompra: '',
+        temporada: '',
+        vendedor: '',
+        fecha: '',
+        entrega: '',
+        detalleCompra: ''
     });
 
-    const handleOrderChange = (e) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
-        setOrderFormData(prevState => ({
+        setFormData(prevState => ({
             ...prevState,
             [name]: value
         }));
     };
 
-    async function handleOrderSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
+        // Implementa la lógica para procesar la orden aquí
+        console.log(formData);
+        alert('Orden confirmada');
+    };
 
-        const { data, error } = await supabase.from('Books').select().filter('title', 'ilike', orderFormData.titulo.trim()).maybeSingle();
-        if (error || !data) {
-            toast.error('No se encontró el libro');
-            return;
-        }
-
-        if (data.quantity < orderFormData.cantidad) {
-            toast.error('No hay suficientes libros en existencia');
-            return;
-        }
-
-        const { data: orderData, error: orderError } = await supabase.from('Orders').insert({
-            book_id: data.id,
-            quantity: orderFormData.cantidad,
-            client: orderFormData.cliente,
-        }).select().single();
-
-        if (orderError) {
-            toast.error('Error al crear el pedido');
-            return;
-        }
-
-        if (orderData) {
-            toast.success('Pedido creado');
-            await supabase.from('Books').update({ quantity: data.quantity - orderFormData.cantidad }).eq('id', data.id);
-        }
-    }
-    
     return (
         <div className="form-container">
-            <div className="custom-table">
-                <h3>Pedido</h3>
-                <form onSubmit={handleOrderSubmit}>
-                    <label htmlFor="tituloSolicitar">Título a solicitar</label>
-                    <input value={orderFormData.titulo} onChange={handleOrderChange} type="text" id="tituloSolicitar" name="titulo" placeholder="" />
+            <h2>Pedido</h2>
+            <form onSubmit={handleSubmit}>
+                <label className="label">Título a solicitar</label>
+                <input className="input" type="text" name="titulo" value={formData.titulo} onChange={handleChange} />
 
-                    <label htmlFor="cantidad">Cantidad</label>
-                    <input value={orderFormData.cantidad} onChange={handleOrderChange} type="text" id="cantidad" name="cantidad" placeholder="" />
+                <label className="label">Cantidad</label>
+                <input className="input" type="number" name="cantidad" value={formData.cantidad} onChange={handleChange} />
 
-                    <label htmlFor="nombreSolicitante">Nombre de colegio o distribuidor que lo solicita</label>
-                    <input value={orderFormData.cliente} onChange={handleOrderChange} type="text" id="nombreSolicitante" name="cliente" placeholder="" />
+                <label className="label">Nombre de colegio o distribuidor que lo solicita</label>
+                <input className="input" type="text" name="colegio" value={formData.colegio} onChange={handleChange} />
 
-                    <button type="submit">Enviar Pedido</button>
-                </form>
-            </div>
+                <label className="label">Orden De Compra</label>
+                <input className="input" type="text" name="ordenCompra" value={formData.ordenCompra} onChange={handleChange} />
 
-            <div className="custom-table">
-                <h3>Orden De Compra</h3>
-                <form>
-                    <label htmlFor="temporada">Temporada</label>
-                    <input type="text" id="temporada" placeholder="" />
+                <label className="label">Temporada</label>
+                <input className="input" type="text" name="temporada" value={formData.temporada} onChange={handleChange} />
 
-                    <label htmlFor="vendedor">Vendedor</label>
-                    <input type="text" id="vendedor" placeholder="" />
+                <label className="label">Vendedor</label>
+                <input className="input" type="text" name="vendedor" value={formData.vendedor} onChange={handleChange} />
 
-                    <label htmlFor="fecha">Fecha</label>
-                    <input type="text" id="fecha" placeholder="" />
+                <label className="label">Fecha</label>
+                <input className="input" type="date" name="fecha" value={formData.fecha} onChange={handleChange} />
 
-                    <label htmlFor="entrega">Entrega</label>
-                    <input type="text" id="entrega" placeholder="" />
+                <label className="label">Entrega</label>
+                <input className="input" type="text" name="entrega" value={formData.entrega} onChange={handleChange} />
 
-                    <label htmlFor="detalleCompra">Detalle De la compra:</label>
-                    <textarea id="detalleCompra" placeholder=""></textarea>
+                <label className="label">Detalle De la compra</label>
+                <textarea className="input" name="detalleCompra" value={formData.detalleCompra} onChange={handleChange} />
 
-                    <button type="submit">Confirmar Orden</button>
-                </form>
-            </div>
+                <button type="submit" className="button">Confirmar Orden</button>
+            </form>
         </div>
     );
 }
