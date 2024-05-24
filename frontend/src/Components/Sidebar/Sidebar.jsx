@@ -44,6 +44,7 @@ const Sidebar = ({ onChangeContent }) => {
         onClick={() => onChangeContent("Pedidos")}
         isExpanded={isExpanded}
       />
+
       <SidebarButton
         icon={<img src="/icons8-total-sales-30.png" alt="Ventas" />}
         text="Ventas"
@@ -62,6 +63,14 @@ const Sidebar = ({ onChangeContent }) => {
         onClick={() => onChangeContent("Configuración")}
         isExpanded={isExpanded}
       />
+      <SidebarButton
+      icon={<img src="/contactoo.png" alt="Contáctanos" />} // Actualiza el nombre del archivo aquí
+      text="Contáctanos"
+      onClick={() => onChangeContent("Contáctanos")}
+      isExpanded={isExpanded}
+      />
+
+
       <SidebarButton
         icon={<img src="/icons8-logout-40.png" alt="Cerrar Sesión" />}
         text="Cerrar Sesión"

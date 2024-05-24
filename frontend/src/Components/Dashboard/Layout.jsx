@@ -6,6 +6,7 @@ import AddOrder from '../AddOrder/AddOrder';
 import ProfileConfig from '../ProfileConfig/ProfileConfig';
 import AddSale from '../AddSale/AddSale';
 import HomePage from "../HomePage/HomePage";
+import Contact from '../Contact/Contact';
 
 const Content = ({ activeContent }) => {
   const renderContent = () => {
@@ -20,6 +21,8 @@ const Content = ({ activeContent }) => {
         return <AddSale />
       case "Configuración":
         return <ProfileConfig />;
+      case "Contáctanos":
+        return <Contact />
       case "Cerrar Sesión":
         return <h2>Cerrando sesión...</h2>;
       default:
