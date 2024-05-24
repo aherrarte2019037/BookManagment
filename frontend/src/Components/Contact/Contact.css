@@ -1,1 +1,36 @@
 /* Contact.css */
+.contact-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .contact-header {
+    margin-bottom: 20px;
+  }
+  
+  .contact-logo {
+    width: 200px; /* Ajusta según tus necesidades */
+  }
+  
+  .contact-body {
+    width: 100%;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .contact-icon {
+    margin-right: 10px;
+    width: 24px; /* Ajusta según tus necesidades */
+  }
+  
+  .contact-qr {
+    margin-top: 20px;
+    width: 100px; /* Ajusta según tus necesidades */
+  }
+  

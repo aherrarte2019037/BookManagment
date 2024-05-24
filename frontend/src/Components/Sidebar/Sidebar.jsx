@@ -64,13 +64,11 @@ const Sidebar = ({ onChangeContent }) => {
         isExpanded={isExpanded}
       />
       <SidebarButton
-      icon={<img src="/contactoo.png" alt="Contáctanos" />} // Actualiza el nombre del archivo aquí
+      icon={<img src="/icons8-contactos-30" alt="Contáctanos" />} 
       text="Contáctanos"
       onClick={() => onChangeContent("Contáctanos")}
       isExpanded={isExpanded}
       />
-
-
       <SidebarButton
         icon={<img src="/icons8-logout-40.png" alt="Cerrar Sesión" />}
         text="Cerrar Sesión"
