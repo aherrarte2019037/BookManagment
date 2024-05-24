@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './Layout.css';
-import Sidebar from '../Sidebar/Sidebar'; // Asegúrate de que la ruta sea correcta
+import Sidebar from '../Sidebar/Sidebar'; 
 import AddBook from '../AddBook/AddBook';
 import AddOrder from '../AddOrder/AddOrder';
 import ProfileConfig from '../ProfileConfig/ProfileConfig';
 import AddSale from '../AddSale/AddSale';
 import HomePage from "../HomePage/HomePage";
 import Contact from '../Contact/Contact';
+import Inventario from '../Inventario/Inventario';
+
 
 const Content = ({ activeContent }) => {
   const renderContent = () => {
@@ -23,6 +25,8 @@ const Content = ({ activeContent }) => {
         return <ProfileConfig />;
       case "Contáctanos":
         return <Contact />
+      case "Inventario":  
+        return <Inventario />;
       case "Cerrar Sesión":
         return <h2>Cerrando sesión...</h2>;
       default:
