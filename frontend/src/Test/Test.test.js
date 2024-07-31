@@ -3,7 +3,9 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import LoginForm from '../Components/LoginForm/LoginForm.jsx';
+import ProfileConfig from '../Components/ProfileConfig/ProfileConfig.jsx';
 import RegisterForm from '../Components/RegisterForm/RegisterForm.jsx';
+import AddBook from '../Components/AddBook/AddBook.jsx';
 import { supabase } from '../Utils/supabase.js';
 
 jest.mock('../Utils/supabase', () => ({
@@ -11,14 +13,15 @@ jest.mock('../Utils/supabase', () => ({
         auth: {
             signInWithPassword: jest.fn(),
             setSession: jest.fn(),
+            getUser: jest.fn(),
         }
     }
 }));
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: () => mockNavigate,
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockNavigate,
 }));
 
 // Mockear window.alert
@@ -121,5 +124,60 @@ describe('RegisterForm', () => {
 
         // Simulate form submission
         fireEvent.click(screen.getByRole('button', { name: /Register/i }));
+    });
+});
+
+describe('ProfileConfig', () => {
+    test('renders profile data and handles input changes', async () => {
+        supabase.auth.getUser.mockResolvedValue({
+            data: {
+                user: {
+                    user_metadata: { name: 'John', lastname: 'Doe' },
+                    email: 'john.doe@example.com'
+                }
+            },
+            error: null
+        });
+
+        render(<ProfileConfig />);
+
+        // Verify initial input values from the mocked profile data
+        expect(await screen.findByDisplayValue('John')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('Doe')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('john.doe@example.com')).toBeInTheDocument();
+
+        // Simulate input change
+        fireEvent.change(screen.getByLabelText(/Nombre:/i), { target: { value: 'Jane' } });
+        fireEvent.change(screen.getByLabelText(/Apellido:/i), { target: { value: 'Smith' } });
+        fireEvent.change(screen.getByLabelText(/Email:/i), { target: { value: 'jane.smith@example.com' } });
+
+        // Verify the state update by checking the new values in the input fields
+        expect(screen.getByDisplayValue('Jane')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('Smith')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('jane.smith@example.com')).toBeInTheDocument();
+    });
+});
+
+describe('AddBook', () => {
+    test('renders add book form', async () => {
+        render(<AddBook />);
+
+        // Check if the form renders with the correct fields
+        expect(screen.getByPlaceholderText('Editorial')).toBeInTheDocument();
+        expect(screen.getByPlaceholderText('Título del Libro')).toBeInTheDocument();
+        expect(screen.getByPlaceholderText('Precio de Venta (Q)')).toBeInTheDocument();
+        expect(screen.getByPlaceholderText('Cantidad')).toBeInTheDocument();
+
+        // Simulate input change
+        fireEvent.change(screen.getByPlaceholderText('Editorial'), { target: { value: 'Editorial Test' } });
+        fireEvent.change(screen.getByPlaceholderText('Título del Libro'), { target: { value: 'Libro Test' } });
+        fireEvent.change(screen.getByPlaceholderText('Precio de Venta (Q)'), { target: { value: '100' } });
+        fireEvent.change(screen.getByPlaceholderText('Cantidad'), { target: { value: '10' } });
+
+        // Verify the state update by checking the new values in the input fields
+        expect(screen.getByDisplayValue('Editorial Test')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('Libro Test')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('100')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('10')).toBeInTheDocument();
     });
 });
