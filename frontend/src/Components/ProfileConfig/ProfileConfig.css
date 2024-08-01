@@ -44,12 +44,15 @@
 /* Contenedor para todos los botones para asegurar alineación y distribución uniforme */
 .button-container {
     display: flex;
+    flex-direction: column;
     justify-content: center; /* Centra los botones horizontalmente */
-    gap: 20px; /* Espacio entre botones */
+    gap: 10px; /* Espacio entre botones */
     margin-top: 20px; /* Margen superior para separar de otros elementos del formulario */
 }
 
 .button {
+    max-width: 120px;
+    margin: 0 auto;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -78,10 +81,10 @@
 }
 
 .cancel-changes-button {
-    background-color: #17a2b8;
-    color: white;
+    background-color: transparent;
+    color: tomato;
 }
 
 .cancel-changes-button:hover {
-    background-color: #138496;
+    background-color: transparent;
 }

@@ -83,8 +83,14 @@ function ProfileConfig() {
                 </div>
 
                 <div className="button-container">
-                    <button type="submit" className="button save-changes-button">Guardar Cambios</button>
-                    <button type="button" onClick={handleCancel} className="button cancel-changes-button">Cancelar Cambios</button>
+                    <button type="submit" className="cta">
+                        <span>Guardar</span>
+                        <svg width="15px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </button>
+                    <button type="button" onClick={handleCancel} className="button cancel-changes-button">Cancelar</button>
                 </div>
             </form>
         </div>
