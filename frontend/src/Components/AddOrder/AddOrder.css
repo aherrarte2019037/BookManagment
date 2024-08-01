@@ -1,10 +1,8 @@
 .form-container {
     background-color: #ffffff;
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
     margin: 20px auto;
     font-family: Arial, sans-serif;
 }
@@ -24,17 +22,26 @@ h2 {
 
 .input {
     width: 100%;
-    height: 40px;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
 }
 
-.input[type="textarea"] {
-    height: 80px;
-    resize: none;
+.input[type="textarea"],
+.input[type="text"],
+.input[type="number"],
+.input[type="date"] {
+    box-sizing: border-box;
+}
+
+.input:hover,
+.input:focus {
+    border-color: #b1dae7;
+    box-shadow: 0 0 10px rgba(177, 218, 231, 0.5);
+    outline: none;
 }
 
 .button {
