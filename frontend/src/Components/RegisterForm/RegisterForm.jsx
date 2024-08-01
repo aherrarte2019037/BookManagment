@@ -73,43 +73,45 @@ const RegisterForm = () => {
     }
 
     return (
-        <div className='wrapper'>
-            <form onSubmit={handleSubmit}>
-                <h1>
-                    Register
-                </h1>
-                <div className="input-box">
-                    <input onChange={handleChange} name="username" type="text" placeholder="Username" required />
-                    <FaUser className="icon" />
-                </div>
-                <div className="input-box">
-                    <input onChange={handleChange} name="name" type="text" placeholder="Name" required />
-                    <FaUser className="icon" />
-                </div>
-                <div className="input-box">
-                    <input onChange={handleChange} name="lastname" type="text" placeholder="Last Name" required />
-                    <FaUser className="icon" />
-                </div>
-                <div className="input-box">
-                    <input onChange={handleChange} name="email" type="email" placeholder="E-mail" required />
-                    <FaUser className="icon" />
-                </div>
-                <div className="input-box">
-                    <input onChange={handleChange} name="accessCode" type="password" placeholder="Access code" />
-                    <FaLock className="icon" />
-                </div>
-                <div className="input-box">
-                    <input onChange={handleChange} name="password" type="password" placeholder="Password" required />
-                    <FaLock className="icon" />
-                </div>
+        <div className="main-wrapper">
+            <div className='wrapper'>
+                <form onSubmit={handleSubmit}>
+                    <h1>
+                        Register
+                    </h1>
+                    <div className="input-box">
+                        <input onChange={handleChange} name="username" type="text" placeholder="Username" required />
+                        <FaUser className="icon" />
+                    </div>
+                    <div className="input-box">
+                        <input onChange={handleChange} name="name" type="text" placeholder="Name" required />
+                        <FaUser className="icon" />
+                    </div>
+                    <div className="input-box">
+                        <input onChange={handleChange} name="lastname" type="text" placeholder="Last Name" required />
+                        <FaUser className="icon" />
+                    </div>
+                    <div className="input-box">
+                        <input onChange={handleChange} name="email" type="email" placeholder="E-mail" required />
+                        <FaUser className="icon" />
+                    </div>
+                    <div className="input-box">
+                        <input onChange={handleChange} name="accessCode" type="password" placeholder="Access code" />
+                        <FaLock className="icon" />
+                    </div>
+                    <div className="input-box">
+                        <input onChange={handleChange} name="password" type="password" placeholder="Password" required />
+                        <FaLock className="icon" />
+                    </div>
 
-                <button type="submit">Register</button>
-                <div className="log-link" >
-                    <p>You have an account?  <a href="/login">Log in</a></p>
-                </div>
+                    <button type="submit">Register</button>
+                    <div className="log-link" >
+                        <p>You have an account?  <a href="/login">Log in</a></p>
+                    </div>
 
-            </form>
+                </form>
 
+            </div>
         </div>
     );
 }

@@ -1,6 +1,19 @@
+.main-wrapper {
+    height: 100svh;
+    width: 100svw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../assets/material-lowpoly.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .wrapper {
-    width: 420px;
-    background: rgb(37, 143, 196);
+    width: 100%;
+    max-width: 500px;
+    background: rgb(194, 90, 76);
     color: aliceblue;
     border-radius: 10px;
     padding: 30px 40px;

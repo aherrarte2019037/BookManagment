@@ -47,37 +47,39 @@ const LoginForm = () => {
     }
 
     return (
-        <div className='wrapper'>
-            <form onSubmit={signInWithPass}>
-                <h1>
-                    Login
-                </h1>
-                <div className="input-box">
-                    <input onChange={handleChange} type="email" name="email" placeholder="Email" required />
-                    <FaUser className="icon" />
-                </div>
-                <div className="input-box">
-                    <input onChange={handleChange} type="password" name="password" placeholder="Password" required />
-                    <FaLock className="icon" />
-                </div>
+        <div className="main-wrapper">
+            <div className='wrapper'>
+                <form onSubmit={signInWithPass}>
+                    <h1>
+                        Login
+                    </h1>
+                    <div className="input-box">
+                        <input onChange={handleChange} type="email" name="email" placeholder="Email" required />
+                        <FaUser className="icon" />
+                    </div>
+                    <div className="input-box">
+                        <input onChange={handleChange} type="password" name="password" placeholder="Password" required />
+                        <FaLock className="icon" />
+                    </div>
 
-                <div className="remember-forgot">
-                    <label>
-                        <input type="checkbox" />
-                        Remember me
-                    </label>
-                    <a href="/forgot-password">Forgot Password</a>
-                </div>
+                    <div className="remember-forgot">
+                        <label>
+                            <input type="checkbox" />
+                            Remember me
+                        </label>
+                        <a href="/forgot-password">Forgot Password</a>
+                    </div>
 
-                <button type="submit">Login</button>
+                    <button type="submit">Login</button>
 
-                <div className="register-link" >
+                    <div className="register-link" >
 
-                    <p>Don't have an account? <a href="/register">Register here</a></p>
+                        <p>Don't have an account? <a href="/register">Register here</a></p>
 
-                </div>
-            </form>
+                    </div>
+                </form>
 
+            </div>
         </div>
     );
 
