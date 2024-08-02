@@ -54,33 +54,49 @@ export default function AddSale() {
     }
 
     return (
-        <div className="new-book-form-container">
+        <div className="form-container">
             <div className="new-book-form">
             <h2>Nueva Venta</h2>
             <form>
-              <label htmlFor="editorial">Temporada</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingrese la temporada" />
+                <div className="form-group">
+                    <label htmlFor="editorial">Temporada</label>
+                    <input type="text" id="editorial" name="editorial" placeholder="Ingrese la temporada" />
+                </div>
 
-              <label htmlFor="titulo">Vendedor</label>
-              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el vendedor" />
+                <div className="form-group">
+                    <label htmlFor="titulo">Vendedor</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ingresa el vendedor" />
+                </div>
 
-              <label htmlFor="precio">Condiciones</label>
-              <input type="text" id="precio" name="precio" placeholder="Ingresa las condiciones" />
+                <div className="form-group">
+                    <label htmlFor="precio">Condiciones</label>
+                    <input type="text" id="precio" name="precio" placeholder="Ingresa las condiciones" />
+                </div>
 
-              <label htmlFor="editorial">Fecha de entrega</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la fecha de entrega" />
+                <div className="form-group">
+                    <label htmlFor="editorial">Fecha de entrega</label>
+                    <input type="text" id="editorial" name="editorial" placeholder="Ingresa la fecha de entrega" />
+                </div>
 
-              <label htmlFor="titulo">Establecimiento</label>
-              <input type="text" id="titulo" name="titulo" placeholder="Ingresa el establecimiento" />
+                <div className="form-group">
+                    <label htmlFor="titulo">Establecimiento</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ingresa el establecimiento" />
+                </div>
 
-              <label htmlFor="precio">Atencion</label>
-              <input type="text" id="precio" name="precio" placeholder="Ingresa atencion" />
+                <div className="form-group">
+                    <label htmlFor="precio">Atencion</label>
+                    <input type="text" id="precio" name="precio" placeholder="Ingresa atencion" />
+                </div>
 
-              <label htmlFor="editorial">Direccion</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa la direccion" />
-
-              <label htmlFor="editorial">Telefono</label>
-              <input type="text" id="editorial" name="editorial" placeholder="Ingresa el telefono" />
+                <div className="form-group">
+                    <label htmlFor="editorial">Direccion</label>
+                    <input type="text" id="editorial" name="editorial" placeholder="Ingresa la direccion" />
+                </div>
+                
+                <div className="form-group">
+                    <label htmlFor="editorial">Telefono</label>
+                    <input type="text" id="editorial" name="editorial" placeholder="Ingresa el telefono" />
+                </div>
 
               <button type="submit" className="cta">
                       <span>Agregar Venta</span>
