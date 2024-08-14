@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import './Inventario.css'; // Asegúrate de tener este archivo en tu proyecto
+import './Inventario.css';
+import { supabase } from '../../Utils/supabase';
 
 export default function Inventario() {
     const [items, setItems] = useState([]);
     const [existencias, setExistencias] = useState([]);
 
-    // Simulación de carga de datos
     useEffect(() => {
-        // Aquí iría la llamada a la API o base de datos para los libros
-        setItems([
-            { id: 1, nombre: 'MATE' },
-            { id: 2, nombre: 'LENGUAJE' },
-            { id: 3, nombre: 'Sociales' }
-        ]);
+        const fetchBooks = async () => {
+            const { data, error } = await supabase
+                .from('Books')
+                .select('id, title');
 
-        // Aquí iría la llamada a la API o base de datos para las existencias
-        setExistencias([
-            { libroId: 1, fecha: '20/03/24', usuario: 'Emilio', cantidad: 100 },
-            { libroId: 1, fecha: '31/07/14', usuario: 'Alicia', cantidad: -10 }
-        ]);
+            if (error) console.error('Error fetching books:', error);
+            else setItems(data);
+        };
+
+        const fetchExistencias = async () => {
+            const { data, error } = await supabase
+                .from('Inventory')
+                .select('book_id, timestamp, user_fullname, quantity');
+
+            if (error) console.error('Error fetching existencias:', error);
+            else setExistencias(data);
+        };
+
+        fetchBooks();
+        fetchExistencias();
     }, []);
-
-    // Calcular el total de existencias
-    const totalExistencias = existencias.reduce((total, existencia) => total + existencia.cantidad, 0);
 
     return (
         <div className="inventario-container">
@@ -39,7 +44,7 @@ export default function Inventario() {
                     {items.map(item => (
                         <tr key={item.id}>
                             <td>{item.id}</td>
-                            <td>{item.nombre}</td>
+                            <td>{item.title}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -56,17 +61,13 @@ export default function Inventario() {
                 </thead>
                 <tbody>
                     {existencias.map(existencia => (
-                        <tr key={`${existencia.libroId}-${existencia.fecha}`}>
-                            <td>{existencia.libroId}</td>
-                            <td>{existencia.fecha}</td>
-                            <td>{existencia.usuario}</td>
-                            <td>{existencia.cantidad}</td>
+                        <tr key={`${existencia.book_id}-${existencia.timestamp}`}>
+                            <td>{existencia.book_id}</td>
+                            <td>{new Date(existencia.timestamp).toLocaleString()}</td>
+                            <td>{existencia.user_fullname}</td>
+                            <td>{existencia.quantity}</td>
                         </tr>
                     ))}
-                    <tr className="total-row">
-                        <td colSpan="3">Total</td>
-                        <td>{totalExistencias}</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
