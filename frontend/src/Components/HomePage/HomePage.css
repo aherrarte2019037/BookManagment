@@ -9,3 +9,49 @@
     height: auto;
     box-sizing: border-box;
 }
+
+.carousel-wrapper {
+    width: calc(500px * 1.3);
+    height: calc(300px * 1.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto 20px;
+    background-color: transparent;
+  }
+  
+  .carousel-container {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: transparent;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-slide {
+    width: 500px;
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
+  }
+  
+  .carousel-slide:not(.active) {
+    opacity: 0.5;
+    filter: brightness(50%);
+    transform: scale(0.8);
+  }
+  
+  .carousel-slide.active {
+    opacity: 1;
+    filter: brightness(100%);
+    transform: scale(1);
+  }
+  
