@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Importa useState y useEffect
+import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -14,39 +14,44 @@ const HomePage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 5000); // Cambia la imagen cada 5 segundos
+    }, 5000); 
 
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  const getSlideClass = (index) => {
+    if (index === currentSlide) return 'active';
+    if (index === (currentSlide - 1 + slides.length) % slides.length) return 'prev';
+    if (index === (currentSlide + 1) % slides.length) return 'next';
+    return '';
+  };
+
   return (
     <>
       <div className="homepage">
-        <div className="carousel-wrapper">
-          <div className="carousel-container">
-            <div className="carousel">
-              {slides.map((slide, index) => (
-                <div
-                  key={index}
-                  className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
-                  style={{ backgroundImage: `url(${slide})` }}
-                ></div>
-              ))}
-            </div>
+        <div className="carousel-container">
+          <div className="carousel">
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`carousel-slide ${getSlideClass(index)}`}
+                style={{ backgroundImage: `url(${slide})` }}
+              ></div>
+            ))}
           </div>
         </div>
       </div>
 
       <div className="new-book-form">
-        <b><h1>Informacion General</h1></b>
+        <b><h1>Información General</h1></b>
         <form>
-          <label htmlFor="editorial">¿Quienes somos?</label>
+          <label htmlFor="editorial">¿Quiénes somos?</label>
           <p>La Editorial Textos Escolares es una empresa guatemalteca líder en la producción y distribución de materiales educativos. Su enfoque en la innovación y la calidad la ha posicionado como un referente en el sector editorial. Con valores de ética, colaboración y compromiso social, la empresa busca contribuir al desarrollo integral de las comunidades educativas. Su visión es expandirse a nivel nacional e internacional, manteniendo su pasión por la educación y la mejora continua.</p>
           
-          <label htmlFor="editorial">Mision</label>
+          <label htmlFor="editorial">Misión</label>
           <p>Facilitar el acceso a una educación de calidad mediante la producción y distribución de materiales educativos innovadores y relevantes, comprometiéndonos con la excelencia en cada etapa de nuestro trabajo, desde la creación hasta la entrega final, para contribuir al desarrollo integral de las comunidades educativas.</p>
           
-          <label htmlFor="editorial">Vision</label>
+          <label htmlFor="editorial">Visión</label>
           <p>Nuestra visión es dejar una huella indeleble en la experiencia de conocimiento en los estudiantes, que sientan los libros de texto como un apoyo, un amigo de aprendizaje, donde puedan encontrar todo un mundo de conocimiento y experiencias, que los invite a querer aprender más, a experimentar en su propia vida las diferentes áreas que se puedan presentar.</p>
           
           <label htmlFor="editorial">Valores</label>
@@ -63,3 +68,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+

@@ -1,57 +1,64 @@
 .new-book-form {
-    background-color: white;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 90%;
-    margin: 20px auto;
-    width: 90%;
-    height: auto;
-    box-sizing: border-box;
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  margin: 20px auto;
+  width: 90%;
+  height: auto;
+  box-sizing: border-box;
 }
 
-.carousel-wrapper {
-    width: calc(500px * 1.3);
-    height: calc(300px * 1.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 100px auto 20px;
-    background-color: transparent;
-  }
-  
-  .carousel-container {
-    width: 500px;
-    height: 300px;
-    overflow: hidden;
-    margin: 0 auto;
-    background-color: transparent;
-  }
-  
-  .carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .carousel-slide {
-    width: 500px;
-    height: 300px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
-  }
-  
-  .carousel-slide:not(.active) {
-    opacity: 0.5;
-    filter: brightness(50%);
-    transform: scale(0.8);
-  }
-  
-  .carousel-slide.active {
-    opacity: 1;
-    filter: brightness(100%);
-    transform: scale(1);
-  }
-  
+.carousel-container {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-slide {
+  width: 300px;
+  height: 400px;
+  margin: 0 10px;
+  background-size: contain;  /* Cambiar a contain para que las imágenes se ajusten completamente */
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  position: absolute;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);  /* Añade una sombra suave */
+}
+
+
+.carousel-slide.prev {
+  transform: translateX(-150%) scale(0.8);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  filter: brightness(100%);
+  transform: scale(1); /* Mantén la escala original para las imágenes laterales */
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Mantén la sombra para destacar */
+}
+
+.carousel-slide.next {
+  transform: translateX(150%) scale(0.8);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+
