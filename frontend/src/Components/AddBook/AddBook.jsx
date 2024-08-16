@@ -59,44 +59,52 @@ export default function AddBook() {
                 <h2>Nuevo Libro</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <input 
-                            value={formData.editorial} 
-                            onChange={handleChange} 
-                            type="text" 
-                            id="editorial" 
-                            name="editorial" 
-                            placeholder="Editorial" 
-                        />
+                        <label 
+                            className="label">Editorial 
+                        </label>
+                            <input 
+                                value={formData.editorial} 
+                                onChange={handleChange} 
+                                type="text" 
+                                id="editorial" 
+                                name="editorial" 
+                            />
                     </div>
                     <div className="form-group">
-                        <input 
-                            value={formData.titulo} 
-                            onChange={handleChange} 
-                            type="text" 
-                            id="titulo" 
-                            name="titulo" 
-                            placeholder="Título del Libro" 
-                        />
+                        <label 
+                            className="label">Titulo del libro 
+                        </label>
+                            <input 
+                                value={formData.titulo} 
+                                onChange={handleChange} 
+                                type="text" 
+                                id="titulo" 
+                                name="titulo" 
+                            />
                     </div>
                     <div className="form-group">
-                        <input 
-                            value={formData.precio} 
-                            onChange={handleChange} 
-                            type="text" 
-                            id="precio" 
-                            name="precio" 
-                            placeholder="Precio de Venta (Q)" 
-                        />
+                        <label 
+                            className="label">Precio de venta 
+                        </label>
+                            <input 
+                                value={formData.precio} 
+                                onChange={handleChange} 
+                                type="text" 
+                                id="precio" 
+                                name="precio" 
+                            />
                     </div>
                     <div className="form-group">
-                        <input 
-                            value={formData.cantidad} 
-                            onChange={handleChange} 
-                            type="text" 
-                            id="cantidad" 
-                            name="cantidad" 
-                            placeholder="Cantidad" 
-                        />
+                        <label 
+                            className="label">Cantidad 
+                        </label>
+                            <input 
+                                value={formData.cantidad} 
+                                onChange={handleChange} 
+                                type="text" 
+                                id="cantidad" 
+                                name="cantidad" 
+                            />
                     </div>
                     <button type="submit" className="cta">
                       <span>Agregar Libro</span>

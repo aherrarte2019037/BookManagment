@@ -36,40 +36,93 @@ export default function AddOrder() {
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label className="label">Título a solicitar</label>
-                        <input className="input" type="text" name="titulo" value={formData.titulo} onChange={handleChange} />
+                            <input 
+                                className="input" 
+                                type="text" 
+                                name="titulo" 
+                                value={formData.titulo} 
+                                onChange={handleChange} 
+                            />
                     </div>
                     <div className="form-group">
                         <label className="label">Cantidad</label>
-                        <input className="input" type="number" name="cantidad" value={formData.cantidad} onChange={handleChange} />
+                            <input 
+                                className="input" 
+                                type="number" 
+                                name="cantidad" 
+                                value={formData.cantidad} 
+                                onChange={handleChange} 
+                            />
                     </div>
                     <div className="form-group">
                         <label className="label">Nombre de colegio o distribuidor que lo solicita</label>
-                        <input className="input" type="text" name="colegio" value={formData.colegio} onChange={handleChange} />
+                            <input 
+                                className="input" 
+                                type="text" 
+                                name="colegio" 
+                                value={formData.colegio} 
+                                onChange={handleChange} 
+                            />
                     </div>
                     <div className="form-group">
                         <label className="label">Orden De Compra</label>
-                        <input className="input" type="text" name="ordenCompra" value={formData.ordenCompra} onChange={handleChange} />
+                            <input 
+                                className="input" 
+                                type="text" 
+                                name="ordenCompra" 
+                                value={formData.ordenCompra} 
+                                onChange={handleChange} 
+                            />
                     </div>
                     <div className="form-group">
                         <label className="label">Temporada</label>
-                        <input className="input" type="text" name="temporada" value={formData.temporada} onChange={handleChange} />
+                            <input 
+                                className="input" 
+                                type="text" 
+                                name="temporada" 
+                                value={formData.temporada} 
+                                onChange={handleChange} 
+                            />
                     </div>
                     <div className="form-group">
                         <label className="label">Vendedor</label>
-                        <input className="input" type="text" name="vendedor" value={formData.vendedor} onChange={handleChange} />
+                            <input 
+                                className="input" 
+                                type="text" 
+                                name="vendedor" 
+                                value={formData.vendedor} 
+                                onChange={handleChange} 
+                            />
                     </div>
                     <div className="form-group">
                         <label className="label">Fecha</label>
-                        <input className="input" type="date" name="fecha" value={formData.fecha} onChange={handleChange} />
+                            <input 
+                                className="input" 
+                                type="date" name="fecha" 
+                                value={formData.fecha} 
+                                onChange={handleChange} 
+                            />
                     </div>
                     <div className="form-group">
                         <label className="label">Entrega</label>
-                        <input className="input" type="text" name="entrega" value={formData.entrega} onChange={handleChange} />
+                            <input 
+                                className="input" 
+                                type="text" 
+                                name="entrega" 
+                                value={formData.entrega} 
+                                onChange={handleChange} 
+                            />
                     </div>
                     <div className="form-group">
                         <label className="label">Detalle De la compra</label>
-                        <textarea className="input" name="detalleCompra" value={formData.detalleCompra} onChange={handleChange} />
+                            <textarea 
+                                className="input" 
+                                name="detalleCompra" 
+                                value={formData.detalleCompra} 
+                                onChange={handleChange} 
+                            />
                     </div>
+                    
                     <button type="submit" className="cta">
                         <span>Agregar Orden</span>
                         <svg width="24" height="24" viewBox="0 0 24 24">

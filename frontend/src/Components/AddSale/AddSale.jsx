@@ -60,42 +60,42 @@ export default function AddSale() {
             <form>
                 <div className="form-group">
                     <label htmlFor="editorial">Temporada</label>
-                    <input type="text" id="editorial" name="editorial" placeholder="Ingrese la temporada" />
+                    <input type="text" id="editorial" name="editorial"  />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="titulo">Vendedor</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Ingresa el vendedor" />
+                    <input type="text" id="titulo" name="titulo"  />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="precio">Condiciones</label>
-                    <input type="text" id="precio" name="precio" placeholder="Ingresa las condiciones" />
+                    <input type="text" id="precio" name="precio"  />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="editorial">Fecha de entrega</label>
-                    <input type="text" id="editorial" name="editorial" placeholder="Ingresa la fecha de entrega" />
+                    <input type="text" id="editorial" name="editorial"  />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="titulo">Establecimiento</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Ingresa el establecimiento" />
+                    <input type="text" id="titulo" name="titulo"  />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="precio">Atencion</label>
-                    <input type="text" id="precio" name="precio" placeholder="Ingresa atencion" />
+                    <input type="text" id="precio" name="precio"  />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="editorial">Direccion</label>
-                    <input type="text" id="editorial" name="editorial" placeholder="Ingresa la direccion" />
+                    <input type="text" id="editorial" name="editorial"  />
                 </div>
                 
                 <div className="form-group">
                     <label htmlFor="editorial">Telefono</label>
-                    <input type="text" id="editorial" name="editorial" placeholder="Ingresa el telefono" />
+                    <input type="text" id="editorial" name="editorial"  />
                 </div>
 
               <button type="submit" className="cta">
