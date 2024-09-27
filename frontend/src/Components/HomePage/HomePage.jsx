@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 
-const HomePage = () => {
+const HomePage = ({ onChangeContent }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    "https://th.bing.com/th/id/R.c38f78f6c39989eb43a17c45ecf9c7ea?rik=HIgltDK2zttPKg&pid=ImgRaw&r=0",
-    "https://th.bing.com/th/id/R.3dd6fd378b12bf90994df4b6272b5bc2?rik=tNWvRE0Xuu4vzA&pid=ImgRaw&r=0",
-    "https://static-cse.canva.com/blob/439109/1024w-qIvQK6RTXxg.jpg",
-    "https://www.recreoviral.com/wp-content/uploads/2015/06/30-asombrosas-portadas-de-libros-28.jpg"
+    { id: '1', img: 'https://www.recreoviral.com/wp-content/uploads/2015/06/30-asombrosas-portadas-de-libros-28.jpg', title: 'Libro 1', description: 'Descripción del Libro 1' },
+    { id: '2', img: 'https://static-cse.canva.com/blob/439109/1024w-qIvQK6RTXxg.jpg', title: 'Libro 2', description: 'Descripción del Libro 2' },
+    { id: '3', img: 'https://th.bing.com/th/id/R.3dd6fd378b12bf90994df4b6272b5bc2?rik=tNWvRE0Xuu4vzA&pid=ImgRaw&r=0', title: 'Libro 3', description: 'Descripción del Libro 3' },
+    { id: '4', img: 'https://th.bing.com/th/id/R.c38f78f6c39989eb43a17c45ecf9c7ea?rik=HIgltDK2zttPKg&pid=ImgRaw&r=0', title: 'Libro 4', description: 'Descripción del Libro 4' },
   ];
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,6 +27,10 @@ const HomePage = () => {
     return '';
   };
 
+  const handleImageClick = (book) => {
+    onChangeContent('BookDetail', book); // Abre en una nueva pestaña
+  };
+
   return (
     <>
       <div className="homepage">
@@ -33,11 +38,16 @@ const HomePage = () => {
           <div className="carousel">
             {slides.map((slide, index) => (
               <div
-                key={index}
-                className={`carousel-slide ${getSlideClass(index)}`}
-                style={{ backgroundImage: `url(${slide})` }}
+                key={slide.id}
+                className={`carousel-slide ${index === currentSlide ? 'active' : ''}`} // Añade clase 'active' si es la diapositiva actual
+                style={{ backgroundImage: `url(${slide.img})` }}
+                onClick={() => handleImageClick(slide)} 
               ></div>
             ))}
+
+            <button onClick={() => setCurrentSlide((currentSlide - 1 + slides.length) % slides.length)}>Anterior</button>
+            <button onClick={() => setCurrentSlide((currentSlide + 1) % slides.length)}>Siguiente</button>
+
           </div>
         </div>
       </div>

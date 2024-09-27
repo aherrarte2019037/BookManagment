@@ -32,12 +32,12 @@
   width: 300px;
   height: 400px;
   margin: 0 10px;
-  background-size: contain;  /* Cambiar a contain para que las imágenes se ajusten completamente */
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
   position: absolute;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);  /* Añade una sombra suave */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 
