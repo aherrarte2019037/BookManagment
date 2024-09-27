@@ -1,0 +1,127 @@
+/* Estilos para la pantalla del libro */
+
+.book-detail-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  width: 180px;
+  height: 50px;
+  position: relative;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.back-button-icon {
+  background-color: #b1dae7;
+  border-radius: 25px;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 5px;
+  transition: width 0.5s;
+}
+
+.back-button:hover .back-button-icon {
+  width: 175px;
+}
+
+.back-button-text {
+  margin-left: 60px;
+  transition: translateX 0.5s;
+}
+
+/* Contenedor del contenido del libro */
+.book-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Portada del libro */
+.book-image-container {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del título y la descripción */
+.book-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Título del libro */
+.book-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-bottom: 0; /* Elimina el margen inferior que empuja la descripción */
+}
+
+/* Descripción del libro */
+.book-description-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 150px;
+  width: 100%;
+  max-width: 600px; /* Limitar el ancho de la descripción */
+  margin-top: 10px; /* Espacio suficiente debajo del título */
+}
+
+.book-description {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Información adicional del libro */
+.book-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea todo el bloque de información adicional a la derecha */
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: auto; /* Este ajuste asegurará que todo el bloque se empuje hacia la derecha */
+  }
+  
+  .book-info-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Asegura que los elementos dentro del item ocupen todo el ancho */
+    max-width: 200px; /* Limita el ancho del bloque individual */
+  }
+  
+  .info-label {
+    font-weight: bold;
+  }
+  
+  .info-value {
+    color: #2d3748;
+    text-align: right; /* Asegura que los valores de la información se alineen a la derecha */
+  }
+  

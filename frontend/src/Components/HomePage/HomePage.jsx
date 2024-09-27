@@ -5,10 +5,10 @@ const HomePage = ({ onChangeContent }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    { id: '1', img: 'https://www.recreoviral.com/wp-content/uploads/2015/06/30-asombrosas-portadas-de-libros-28.jpg', title: 'Libro 1', description: 'Descripción del Libro 1' },
-    { id: '2', img: 'https://static-cse.canva.com/blob/439109/1024w-qIvQK6RTXxg.jpg', title: 'Libro 2', description: 'Descripción del Libro 2' },
-    { id: '3', img: 'https://th.bing.com/th/id/R.3dd6fd378b12bf90994df4b6272b5bc2?rik=tNWvRE0Xuu4vzA&pid=ImgRaw&r=0', title: 'Libro 3', description: 'Descripción del Libro 3' },
-    { id: '4', img: 'https://th.bing.com/th/id/R.c38f78f6c39989eb43a17c45ecf9c7ea?rik=HIgltDK2zttPKg&pid=ImgRaw&r=0', title: 'Libro 4', description: 'Descripción del Libro 4' },
+    { id: '1', img: 'https://www.recreoviral.com/wp-content/uploads/2015/06/30-asombrosas-portadas-de-libros-28.jpg', title: 'The brothers and sisters', description: 'Descripción del Libro 1' },
+    { id: '2', img: 'https://static-cse.canva.com/blob/439109/1024w-qIvQK6RTXxg.jpg', title: 'El quinto infierno', description: 'Descripción del Libro 2' },
+    { id: '3', img: 'https://th.bing.com/th/id/R.3dd6fd378b12bf90994df4b6272b5bc2?rik=tNWvRE0Xuu4vzA&pid=ImgRaw&r=0', title: 'Portadas de libros para niños', description: 'Descripción del Libro 3' },
+    { id: '4', img: 'https://th.bing.com/th/id/R.c38f78f6c39989eb43a17c45ecf9c7ea?rik=HIgltDK2zttPKg&pid=ImgRaw&r=0', title: 'Las leyendas de la tierra límite', description: 'Descripción del Libro 4' },
   ];
 
 
