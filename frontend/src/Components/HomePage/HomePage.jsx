@@ -11,6 +11,7 @@ const HomePage = ({ onChangeContent }) => {
     { id: '4', img: 'https://th.bing.com/th/id/R.c38f78f6c39989eb43a17c45ecf9c7ea?rik=HIgltDK2zttPKg&pid=ImgRaw&r=0', title: 'Las leyendas de la tierra límite', description: 'Descripción del Libro 4' },
   ];
 
+  const slideWidth = 270;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,6 +20,11 @@ const HomePage = ({ onChangeContent }) => {
 
     return () => clearInterval(interval);
   }, [slides.length]);
+
+  const getCarouselTransform = () => {
+    const offset = (window.innerWidth / 2) - (slideWidth / 2); // Cálculo para centrar la imagen
+    return `translateX(${offset - currentSlide * slideWidth}px)`;
+  };
 
   const getSlideClass = (index) => {
     if (index === currentSlide) return 'active';
@@ -35,11 +41,11 @@ const HomePage = ({ onChangeContent }) => {
     <>
       <div className="homepage">
         <div className="carousel-container">
-          <div className="carousel">
+          <div className="carousel" >
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`carousel-slide ${index === currentSlide ? 'active' : ''}`} // Añade clase 'active' si es la diapositiva actual
+                className={`carousel-slide ${getSlideClass(index)}`} // Añade clase 'active' si es la diapositiva actual
                 style={{ backgroundImage: `url(${slide.img})` }}
                 onClick={() => handleImageClick(slide)} 
               ></div>
