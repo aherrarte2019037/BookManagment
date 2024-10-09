@@ -19,12 +19,12 @@
   }
   
   .company-icon img {
-    width: 30px; /* Tamaño cuando el sidebar está colapsado */
+    width: 50px; /* Tamaño cuando el sidebar está colapsado */
     transition: width 0.3s ease;
   }
   
   .company-icon.expanded img {
-    width: 100px; /* Tamaño cuando el sidebar está expandido */
+    width: 120px; /* Tamaño cuando el sidebar está expandido */
   }
   
   .sidebar-item {

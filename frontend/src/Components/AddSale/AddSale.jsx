@@ -3,12 +3,23 @@ import toast from "react-hot-toast";
 import { supabase } from '../../Utils/supabase';
 import './AddSale.css';
 
+const InputField = ({label, name, value, onChange}) => (
+    <div className="form-group">
+        <label htmlFor="{name}">{label}</label>
+        <input type="text" id={name} name={name} value={value} onChange={onChange}/>
+    </div>
+);
+
 export default function AddSale() {
     const [formData, setFormData] = useState({
         editorial: '',
-        titulo: '',
-        precio: '',
-        cantidad: ''
+        vendedor: '',
+        condiciones: '',
+        fechaEntrega: '',
+        establecimiento: '',
+        atencion: '',
+        direccion: '',
+        telefono: ''
     });
 
     const handleChange = (e) => {
@@ -42,61 +53,32 @@ export default function AddSale() {
             toast.error('No se pudo agregar el libro');
         }
 
-        if (data) {
-            toast.success('Libro agregado correctamente');
-            setFormData({
-                editorial: '',
-                titulo: '',
-                precio: '',
-                cantidad: ''
-            });
-        }
+        toast.success('Libro agregado correctamente');
+        setFormData({
+            editorial: '',
+            vendedor: '',
+            condiciones: '',
+            fechaEntrega: '',
+            establecimiento: '',
+            atencion: '',
+            direccion: '',
+            telefono: ''
+        }); 
     }
 
     return (
         <div className="form-container">
             <div className="new-book-form">
             <h2>Nueva Venta</h2>
-            <form>
-                <div className="form-group">
-                    <label htmlFor="editorial">Temporada</label>
-                    <input type="text" id="editorial" name="editorial"  />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="titulo">Vendedor</label>
-                    <input type="text" id="titulo" name="titulo"  />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="precio">Condiciones</label>
-                    <input type="text" id="precio" name="precio"  />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="editorial">Fecha de entrega</label>
-                    <input type="text" id="editorial" name="editorial"  />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="titulo">Establecimiento</label>
-                    <input type="text" id="titulo" name="titulo"  />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="precio">Atencion</label>
-                    <input type="text" id="precio" name="precio"  />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="editorial">Direccion</label>
-                    <input type="text" id="editorial" name="editorial"  />
-                </div>
-                
-                <div className="form-group">
-                    <label htmlFor="editorial">Telefono</label>
-                    <input type="text" id="editorial" name="editorial"  />
-                </div>
+            <form onSubmit={handleSubmit}>
+                <InputField label="Temporada" name="editorial" value={formData.editorial} onChange={handleChange}/>
+                <InputField label="Vendedor" name="vendedor" value={formData.vendedor} onChange={handleChange}/>
+                <InputField label="Condiciones" name="condiciones" value={formData.condiciones} onChange={handleChange}/>
+                <InputField label="Fecha de entrega" name="fechaEntrega" value={formData.fechaEntrega} onChange={handleChange}/>
+                <InputField label="Establecimiento" name="establecimiento" value={formData.establecimiento} onChange={handleChange}/>
+                <InputField label="Atencion" name="atencion" value={formData.atencion} onChange={handleChange}/>
+                <InputField label="Direccion" name="direccion" value={formData.direccion} onChange={handleChange}/>
+                <InputField label="Telefono" name="telefono" value={formData.telefono} onChange={handleChange}/>
 
               <button type="submit" className="cta">
                       <span>Agregar Venta</span>

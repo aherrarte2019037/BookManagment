@@ -15,13 +15,11 @@ const RegisterForm = () => {
         password: ''
     });
 
-    function handleChange(event) {
-        setFormData((prevFormData) => {
-            return {
-                ...prevFormData,
-                [event.target.name]: event.target.value
-            };
-        });
+    const handleChange = ({target: {name, value}}) => {
+        setFormData((prevFormData)=> ({
+            ...prevFormData,
+            [name]: value
+        }));
     }
 
     async function handleSubmit(event) {
