@@ -1,10 +1,9 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import LoginForm from '../Components/LoginForm/LoginForm.jsx';
 import ProfileConfig from '../Components/ProfileConfig/ProfileConfig.jsx';
 import RegisterForm from '../Components/RegisterForm/RegisterForm.jsx';
-import AddBook from '../Components/AddBook/AddBook.jsx';
 import { supabase } from '../Utils/supabase.js';
 
 jest.mock('../Utils/supabase', () => ({
@@ -64,15 +63,16 @@ describe('LoginForm', () => {
             target: { value: '123456' }
         });
 
-        await act(async () => {
-            fireEvent.click(screen.getByRole('button', { name: /Login/i }));
-        });
+        fireEvent.click(screen.getByRole('button', { name: /Login/i }));
 
         await waitFor(() => {
             expect(mockSignIn).toHaveBeenCalledWith({
                 email: 'angelherrarte3@gmail.com',
                 password: '123456'
             });
+        });
+
+        await waitFor(() => {
             expect(mockSignIn).toHaveBeenCalledTimes(1);
         });
     });
