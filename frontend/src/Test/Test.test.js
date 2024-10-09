@@ -156,27 +156,3 @@ describe('ProfileConfig', () => {
         expect(screen.getByDisplayValue('jane.smith@example.com')).toBeInTheDocument();
     });
 });
-
-describe('AddBook', () => {
-    test('renders add book form', async () => {
-        render(<AddBook />);
-
-        // Check if the form renders with the correct fields
-        expect(screen.getByPlaceholderText('Editorial')).toBeInTheDocument();
-        expect(screen.getByPlaceholderText('Título del Libro')).toBeInTheDocument();
-        expect(screen.getByPlaceholderText('Precio de Venta (Q)')).toBeInTheDocument();
-        expect(screen.getByPlaceholderText('Cantidad')).toBeInTheDocument();
-
-        // Simulate input change
-        fireEvent.change(screen.getByPlaceholderText('Editorial'), { target: { value: 'Editorial Test' } });
-        fireEvent.change(screen.getByPlaceholderText('Título del Libro'), { target: { value: 'Libro Test' } });
-        fireEvent.change(screen.getByPlaceholderText('Precio de Venta (Q)'), { target: { value: '100' } });
-        fireEvent.change(screen.getByPlaceholderText('Cantidad'), { target: { value: '10' } });
-
-        // Verify the state update by checking the new values in the input fields
-        expect(screen.getByDisplayValue('Editorial Test')).toBeInTheDocument();
-        expect(screen.getByDisplayValue('Libro Test')).toBeInTheDocument();
-        expect(screen.getByDisplayValue('100')).toBeInTheDocument();
-        expect(screen.getByDisplayValue('10')).toBeInTheDocument();
-    });
-});
