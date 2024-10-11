@@ -24,7 +24,8 @@
 }
 
 .back-button-icon {
-  background-color: #b1dae7;
+  background-color: #4CAF50; /* Un color verde suave */
+  transition: all 0.3s ease; /* Transición más rápida */
   border-radius: 25px;
   height: 45px;
   width: 45px;
@@ -33,7 +34,6 @@
   justify-content: center;
   position: absolute;
   left: 5px;
-  transition: width 0.5s;
 }
 
 .back-button:hover .back-button-icon {
@@ -95,8 +95,8 @@
 }
 
 .book-description {
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 20px; /* Tamaño de fuente un poco más grande */
+  color: #333; /* Cambia el color para mejor contraste */
 }
 
 /* Información adicional del libro */
