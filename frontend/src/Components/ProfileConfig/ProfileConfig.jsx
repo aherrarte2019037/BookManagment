@@ -14,26 +14,23 @@ function ProfileConfig() {
 
     useEffect(() => {
         const fetchProfile = async () => {
-            const { data, error } = await supabase.auth.getUser();
-            if (error) {
-                toast.error('No se pudo obtener la información del perfil');
-                return;
-            }
-            if (data?.user) {
-                setProfile({
-                    firstName: data.user.user_metadata.name,
-                    lastName: data.user.user_metadata.lastname,
-                    email: data.user.email,
-                });
-                setInitialEmail(data.user.email);
+            try{
+                const {data} = await supabase.auth.getUser();
+                if (data?.user){
+                    const {name, lastname} = data.user.user_metadata;
+
+                    setProfile({firstName: name, lastName: lastname, email: data.user.email});
+                    setInitialEmail(data.user.email);
+                }
+            } catch{
+                toast.error("No se pudo obtener la información del perfil");
             }
         };
         fetchProfile();
     }, []);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProfile(prevState => ({ ...prevState, [name]: value }));
+    const handleChange = ({target: {name, value}}) =>{
+        setProfile(prev => ({...prev, [name]: value}));
     };
 
     const handleSubmit = async (e) => {
@@ -50,47 +47,41 @@ function ProfileConfig() {
             updates.email = profile.email;
         }
 
-        const { error } = await supabase.auth.updateUser(updates);
-        if (error) {
-            toast.error('No se pudo actualizar la información del perfil');
-        } else {
+        try{
+            const {error} = await supabase.auth.updateUser(updates);
+            if (error)throw new Error();
             toast.success('Perfil actualizado correctamente');
+        }catch{
+            toast.error('No se pudo actualizar la información del perfil')
         }
-    };
-
-    const handleCancel = () => {
-        console.log('Cambios cancelados');
     };
 
     return (
         <div className="profile-config">
             <h1>Configuración del Perfil</h1>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Nombre:
-                        <input type="text" name="firstName" value={profile.firstName} onChange={handleChange} />
-                    </label>
-                </div>
-                <div className="form-group">
-                    <label>Apellido:
-                        <input type="text" name="lastName" value={profile.lastName} onChange={handleChange} />
-                    </label>
-                </div>
-                <div className="form-group">
-                    <label>Email:
-                        <input type="email" name="email" value={profile.email} onChange={handleChange} />
-                    </label>
-                </div>
-
+                {['firstName', 'lastName', 'email'].map(field => (
+                    <div className='form-group' key={field}>
+                        <label>
+                            {field.charAt(0).toUpperCase() + field.slice(1)}:
+                            <input 
+                            type={field === 'email' ? 'email':'text'}
+                            name={field}
+                            value={profile[field]}
+                            onChange={handleChange}
+                            />
+                        </label>
+                    </div>
+                ))}
                 <div className="button-container">
                     <button type="submit" className="cta">
                         <span>Guardar</span>
                         <svg width="15px" height="10px" viewBox="0 0 13 10">
-                            <path d="M1,5 L11,5"></path>
-                            <polyline points="8 1 12 5 8 9"></polyline>
+                            <path d="M1,5 L11,5" />
+                            <polyline points="8 1 12 5 8 9" />
                         </svg>
                     </button>
-                    <button type="button" onClick={handleCancel} className="button cancel-changes-button">Cancelar</button>
+                    <button type="button" onClick={() => console.log('Cambios cancelados')} className="button cancel-changes-button">Cancelar</button>
                 </div>
             </form>
         </div>
