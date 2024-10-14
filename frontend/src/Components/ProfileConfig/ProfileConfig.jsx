@@ -36,23 +36,20 @@ function ProfileConfig() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const updates = {
-            data: {
-                name: profile.firstName,
-                lastname: profile.lastName
-            }
+            name: profile.firstName,
+            lastname: profile.lastName
         };
 
         // Include email only if it has changed
         if (profile.email !== initialEmail) {
             updates.email = profile.email;
         }
-
         try{
             const {error} = await supabase.auth.updateUser(updates);
-            if (error)throw new Error();
+            if (error) throw new Error();
             toast.success('Perfil actualizado correctamente');
-        }catch{
-            toast.error('No se pudo actualizar la información del perfil')
+        }catch (error){
+            toast.error('No se pudo actualizar la información del perfil');
         }
     };
 
