@@ -3,13 +3,8 @@ import './ProfileConfig.css';
 import { supabase } from '../../Utils/supabase';
 import toast from "react-hot-toast";
 
-function ProfileConfig() {
-    const [profile, setProfile] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-    });
-
+const useProfile = () => {
+    const [profile, setProfile] = useState({ firstName: '', lastName: '', email: '' });
     const [initialEmail, setInitialEmail] = useState('');
 
     useEffect(() => {
@@ -31,6 +26,21 @@ function ProfileConfig() {
         fetchProfile();
     }, []);
 
+    const updateProfile = async (updates) => {
+        const { error } = await supabase.auth.updateUser(updates);
+        if (error) {
+            toast.error('No se pudo actualizar la información del perfil');
+        } else {
+            toast.success('Perfil actualizado correctamente');
+        }
+    };
+
+    return { profile, setProfile, initialEmail, updateProfile };
+};
+
+function ProfileConfig() {
+    const { profile, setProfile, initialEmail, updateProfile } = useProfile();
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProfile(prevState => ({ ...prevState, [name]: value }));
@@ -41,47 +51,40 @@ function ProfileConfig() {
         const updates = {
             data: {
                 name: profile.firstName,
-                lastname: profile.lastName
-            }
+                lastname: profile.lastName,
+            },
+            ...(profile.email !== initialEmail && { email: profile.email }),
         };
-
-        // Include email only if it has changed
-        if (profile.email !== initialEmail) {
-            updates.email = profile.email;
-        }
-
-        const { error } = await supabase.auth.updateUser(updates);
-        if (error) {
-            toast.error('No se pudo actualizar la información del perfil');
-        } else {
-            toast.success('Perfil actualizado correctamente');
-        }
+        await updateProfile(updates);
     };
 
     const handleCancel = () => {
         console.log('Cambios cancelados');
     };
 
+    const fields = {
+        firstName: { label: 'Nombre', type: 'text' },
+        lastName: { label: 'Apellido', type: 'text' },
+        email: { label: 'Email', type: 'email' },
+    };
+
     return (
         <div className="profile-config">
             <h1>Configuración del Perfil</h1>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Nombre:
-                        <input type="text" name="firstName" value={profile.firstName} onChange={handleChange} />
-                    </label>
-                </div>
-                <div className="form-group">
-                    <label>Apellido:
-                        <input type="text" name="lastName" value={profile.lastName} onChange={handleChange} />
-                    </label>
-                </div>
-                <div className="form-group">
-                    <label>Email:
-                        <input type="email" name="email" value={profile.email} onChange={handleChange} />
-                    </label>
-                </div>
-
+                {Object.entries(fields).map(([key, { label, type }]) => (
+                    <div className="form-group" key={key}>
+                        <label>
+                            {label}:
+                            <input
+                                type={type}
+                                name={key}
+                                value={profile[key]}
+                                onChange={handleChange}
+                            />
+                        </label>
+                    </div>
+                ))}
                 <div className="button-container">
                     <button type="submit" className="cta">
                         <span>Guardar</span>
