@@ -19,7 +19,10 @@ export default function AddSale() {
         establecimiento: '',
         atencion: '',
         direccion: '',
-        telefono: ''
+        telefono: '',
+        titulo: '',
+        precio: '',
+        cantidad: ''
     });
 
     const handleChange = (e) => {
@@ -62,7 +65,10 @@ export default function AddSale() {
             establecimiento: '',
             atencion: '',
             direccion: '',
-            telefono: ''
+            telefono: '',
+            titulo: '',
+            precio: '',
+            cantidad: ''
         }); 
     }
 
@@ -79,6 +85,9 @@ export default function AddSale() {
                 <InputField label="Atencion" name="atencion" value={formData.atencion} onChange={handleChange}/>
                 <InputField label="Direccion" name="direccion" value={formData.direccion} onChange={handleChange}/>
                 <InputField label="Telefono" name="telefono" value={formData.telefono} onChange={handleChange}/>
+                <InputField label="Titulo" name="titulo" value={formData.titulo} onChange={handleChange}/>
+                <InputField label="Precio" name="precio" value={formData.precio} onChange={handleChange}/>
+                <InputField label="Cantidad" name="cantidad" value={formData.cantidad} onChange={handleChange}/>
 
               <button type="submit" className="cta">
                       <span>Agregar Venta</span>

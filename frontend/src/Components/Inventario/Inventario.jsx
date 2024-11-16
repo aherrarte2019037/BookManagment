@@ -27,6 +27,7 @@ export default function Inventario() {
 
         fetchBooks();
         fetchExistencias();
+
     }, []);
 
     return (
