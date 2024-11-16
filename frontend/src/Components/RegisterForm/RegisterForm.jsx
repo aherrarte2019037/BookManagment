@@ -66,7 +66,7 @@ const RegisterForm = () => {
 
         } catch (error) {
             console.log('Error: ', error.message);
-            alert(error);
+            alert('Error en credenciales, intenta de nuevo');
         }
     }
 

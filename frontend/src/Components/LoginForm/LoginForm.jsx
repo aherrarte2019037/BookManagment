@@ -32,8 +32,8 @@ const LoginForm = () => {
             navigate('/dashboard');
 
         } catch (error) {
-            console.error(`Error signing in with password: ${error}`);
-            alert(`Error signing in with password: ${error}`);
+            console.error(`Error signing in: ${error}`);
+            alert(`Error en contraseña, intenta de nuevo`);
         }
     }
 
